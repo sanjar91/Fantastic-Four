@@ -34,5 +34,12 @@ Project Proposal
 * Requests from publishers and subscribers should in no way impact the status of the broker.
 
 ### 3. Motivation for selecting this project
+Mosquitto is a lightweight broker and Client that uses the MQTT protocol for messaging. MQTT is a very popular protocol for the Internet of Things movement, and enables the ability to message thousands of machines at the same time in a publication/subscription format.
+While this makes it very easy to enable machine to machine messaging and other core pieces of IoT, it also brings a greater threat impact and wider threat target to keeping IoT secure. With [DDOS attacks using IoT](https://www.corero.com/blog/870-the-rise-of-iot-botnet-threats-and-ddos-attacks.html) on the rise, the movement
+is starting to attract a very negative attitude in the cybersecurity world, which was part of our motivation for selecting this project.
+
+Mosquitto is also used in several large scale open source projects that deal specifically with personal location tracking. The [OwnTracks project](https://owntracks.org/booklet/), a project that provides applications for reporting your phone's location to your own private servers,
+  uses Mosquitto exclusively in their applications and lists Mosquitto as their recommended broker in their [documentation](https://owntracks.org/booklet/guide/broker/). Another IoT project, [ThingsBoard](https://thingsboard.io/), also lists Mosquitto as a recommended client and broker for pushing data through [MQTT published messages](https://thingsboard.io/docs/getting-started-guides/helloworld/).
+Due to the sensitivity of the information transmitted from projects such as OwnTracks and ThingsBoard, transmitting secure messages to thousands of devices is imperative, and Mosquitto makes for a great starting point in assuring that data can be transmitted securely. 
 
 
