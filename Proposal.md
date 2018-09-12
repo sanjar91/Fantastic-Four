@@ -70,6 +70,14 @@ Mosquitto is also used in several large scale open source projects that deal spe
   uses Mosquitto exclusively in their applications and lists Mosquitto as their recommended broker in their [documentation](https://owntracks.org/booklet/guide/broker/). Another IoT project, [ThingsBoard](https://thingsboard.io/), also lists Mosquitto as a recommended client and broker for pushing data through [MQTT published messages](https://thingsboard.io/docs/getting-started-guides/helloworld/).
 Due to the sensitivity of the information transmitted from projects such as OwnTracks and ThingsBoard, transmitting secure messages to thousands of devices is imperative, and Mosquitto makes for a great starting point in assuring that data can be transmitted securely. 
 
+### 4. Open source project description (What is it?, Contributors, Activity, Use, Popularity, Languages used, platform, documentation sources, etc.)
+
+Eclipse Mosquitto, part of the Eclipse Foundation, is an open source lightweight message broker that uses Message Queue Telemeter Transport (MQTT) protocol. Mosquitto is multiplatform and can be used on all devices regardless the computing power of the machine. MQTT protocol uses a publisher/subscriber module. Multiple subscribers can connect to a publisher and subscribe to the topics they are interested in. Mosquitto uses MQTT protocol due to MQTT’s lightweight pub/sub model. 
+
+Mosquitto has 22 releases, and 53 contributors. Currently there are 196 open issues that are being worked on by different contributors. Mosquitto is mainly based around C#, but it uses Python, C++, HTML, and other languages as well. The documentation for subscriber, publisher/broker, and client library or APIs can be found in the man pages on http://mosquitto.org/man/. 
+
+Mosquitto works on multiple platforms such as Windows, Mac, Linux, CentOS, Raspberry Pi, et cetera., the full list of platforms with installation guides for each can be found at the following link https://mosquitto.org/download/. 
+
 
 ### License
 * The Mosquitto project is dual licensed under the Eclipse Public License 1.0 and the Eclipse Distribution License 1.0 as described in the epl-v10 and edl-v10 files.
