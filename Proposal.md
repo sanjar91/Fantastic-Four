@@ -33,6 +33,34 @@ Project Proposal
 * The broker should have the ability to limit the amount of requests that are sent from a single device or user to prevent possible network attacks from bringing the broker down.
 * Requests from publishers and subscribers should in no way impact the status of the broker.
 
+### 2. Security Features
+
+#### Encrypted network connection and authentication ####
+Authentication is disabled by default but two configurable encryption options are available:
+- Certificate based SSL/TLS support
+- Pre Shared Key encryption
+
+#### Authorization ####
+Configurable options are available to setup access control lists (ACLs) which confirm whether or not the clientis authorized to subscript/publish to various topics. 
+
+#### Quality of Service ####
+The Broker/Client can specific how much effort will take place to ensure a message is delivered.  Those levels are as follows:
+
+0: the broker/client will deliver the message once, with no confirmation (default)
+
+1: The broker/client will deliver the message at least once, with confirmation required
+
+2: The broker/client will deliver the message exactly once by using a four step handshake
+
+#### Wills ####
+A client may setup a “Will” which is a message that the broker will send out to all other connected client’s of the selected topic in the event that the client disconnects unexpectedly. 
+
+#### Retained Messages ####
+Configurable options are available in order for the Broker to save/persist messages on topics.
+
+#### Clean Sessions / Durable Connections ####
+Configurations are availble for the broker to keep track of a client’s desired QoS and subscriptions.  in this way, those configurations will still be available if the client disconnects and later reconnects.
+
 ### 3. Motivation for selecting this project
 Mosquitto is a lightweight broker and Client that uses the MQTT protocol for messaging. MQTT is a very popular protocol for the Internet of Things movement, and enables the ability to message thousands of machines at the same time in a publication/subscription format.
 While this makes it very easy to enable machine to machine messaging and other core pieces of IoT, it also brings a greater threat impact and wider threat target to keeping IoT secure. With [DDOS attacks using IoT](https://www.corero.com/blog/870-the-rise-of-iot-botnet-threats-and-ddos-attacks.html) on the rise, the movement
@@ -82,3 +110,8 @@ If applicable, a link to the Bug that is addressed by the commit should be inclu
 In order to set up sign-off-by formatting, go to account settings at https://accounts.eclipse.org/user#open_tab_accountsettings and add your GitHub username to your account. Make sure that you sign-off your Git commits in the following format: Signed-off-by: John Smith <johnsmith@nowhere.com> This is usually displayed at the bottom of the commit message. Additionally, ensure that the email address that you make your commits with is the same one you used to sign up to the Eclipse Foundation website with.
 
 Command to sign off on a commit: git commit -s -m "Auto share multiple projects in single job"
+
+### 6. Security History
+
+This project is actively maintained. At the time of this writing, the most recent commit occurred less than a month ago, and responses to submitted issues tend to occur within days.  
+This project has been available since 2014, and as of the time of this writing: a total of four security vulnerabilities have been posted.   These vulnerabilities where published on Common Vulnerabilities and Exposures (CVE).  The most recent of these was dated 2/27/2018, and it details a DDoS vulnerability.  A fix was implemented in version 1.4.15.  A particularly nasty vulnerability was also discovered where if a SIGHUP is sent to the broker when there are no more file descriptors, then this can in effect cause security settings to get reset back to their defaults, thus potentially removing critical security mechanisms such as authorization and authentication (because the default settings have these features turned off).This vulnerability was also fixed in version 1.4.15, but it is worth noting that the fix did not involve changing the default settings.  
