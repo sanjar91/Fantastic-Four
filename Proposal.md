@@ -43,3 +43,42 @@ Mosquitto is also used in several large scale open source projects that deal spe
 Due to the sensitivity of the information transmitted from projects such as OwnTracks and ThingsBoard, transmitting secure messages to thousands of devices is imperative, and Mosquitto makes for a great starting point in assuring that data can be transmitted securely. 
 
 
+### License
+* The Mosquitto project is dual licensed under the Eclipse Public License 1.0 and the Eclipse Distribution License 1.0 as described in the epl-v10 and edl-v10 files.
+
+1. Grant of Rights: Contributors grant recipients a non-exclusive, worldwide, royalty-free copyright license. Recipients have no assurances from contributors that the program does not infringe the patent or other intellectual property rights of any other entity. 
+2. Requirements: A Contributor may choose to distribute the Program in object code form under
+its own license agreement, provided that it complies with the terms and conditions of this Agreement; and excludes all contributors for damages as a result of the Program.
+3. Commercial Distribution: Contributors who include the program within a commercial product must do so without creating potential liabilities for other contributors, and if a court requires any other Contributor to pay any damages as a result, the Commercial Contributor must pay those damages.
+4. No Warranty: The open source software is available "as is" and each recipient is resposible for determining the appropriateness of using the program and assumes all risk associated with its use. 
+5. Disclaimer of Liability: Recipients nor Contributors will have liability for any direct or indirect damages caused from code changes. 
+
+### Making Contributions
+In order for contributions to be accepted, they must comply with the Eclipse Foundation IP policy at http://wiki.eclipse.org/Development_Resources/Handling_Git_Contributions
+
+#### Contributor Agreement
+1. Create an account for an Eclipse Foundation User ID at https://accounts.eclipse.org/user/register to gain access to Gerrit, Bugzilla, and other Eclipse Foundation web resources. Be sure to use the same email address when you register for the account that you intend to use on Git commit records. 
+2. Sign the Eclipse Contributor Agreement (Certificate of Origin) at http://www.eclipse.org/legal/ECA.php. 
+
+By signing the ECA committers are agreeing to the following:
+* Work submitted with modifications must be original work by the developer(s) and is expected to be covered by the appropriate open source license.
+* All contributions and the personal information submitted with those contributions will be made public record.
+
+#### Getting Started
+* Clone the forked repository: git clone https://github.com/<your username>/mosquitto.git
+* If you are adding a new feature, a new branch should be created from the latest develop branch with git checkout -b YOUR_BRANCH_NAME origin/develop. 
+* If you are fixing a bug, a new branch should be created from the latest fixes branch with git checkout -b YOUR_BRANCH_NAME origin/fixes.
+* Make sure that your commit message is meaningful and describes your changes correctly. Go to https://github.com/eclipse/mosquitto and create a pull request from your "YOUR_BRANCH_NAME" branch to the develop or fixes branch as appropriate to request review and merge of the commits in your pushed branch.
+  
+#### Commit Records
+Minimally, your Git commit record must have the following:
+* Your credentials (email address) captured in the "Author" field;
+* A single line summary in the message field, followed by a more detailed descriptive paragraph;
+* A "Signed-off-by" entry with matching credentials in the message footer; and
+* Specify additional authors using one or more "Also-by" entries in the message footer. 
+
+If applicable, a link to the Bug that is addressed by the commit should be included in the message footer. The id (bug number) of the bug should also be included in the message summary.
+
+In order to set up sign-off-by formatting, go to account settings at https://accounts.eclipse.org/user#open_tab_accountsettings and add your GitHub username to your account. Make sure that you sign-off your Git commits in the following format: Signed-off-by: John Smith <johnsmith@nowhere.com> This is usually displayed at the bottom of the commit message. Additionally, ensure that the email address that you make your commits with is the same one you used to sign up to the Eclipse Foundation website with.
+
+Command to sign off on a commit: git commit -s -m "Auto share multiple projects in single job"
