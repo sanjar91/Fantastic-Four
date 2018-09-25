@@ -8,3 +8,19 @@ Mosquitto is a message broker that uses the MQTT protocol for publication/subscr
 One of the more common scenarios where mosquitto is implemented is in package delivery and fleet management. An open source Software As A Service Provider, [Thingsboard](https://thingsboard.io/fleet-tracking/) uses the MQTT protocol and recommends the mosquitto MQTT clients for it's fleet tracking and fleet management software. using the pub/sub style messaging, delivery trucks in the fleet can publish their location, mileage, and subscribe to updates on the orders they are driving to complete. The scenario we used to generate our use cases, data flows and misuse cases is for a package delivery company that uses mosquitto to broadcast messages to the drivers and track the driver's status as they complete orders.
 
 The stakeholders in this scenario are primarily the drivers, who want to stay up to date as to the location and condition of the orders they are filling. They also wish to be able to notify their management headquarters when they either complete a delivery, or if there is a problem and they need assistance. The stakeholders are also the management team who need to notify the drivers of any state changes to their orders, and who need to monitor the activity of the individual members of their fleet. Depending on the package delivery system, and it's customer base, you could argue that the consumers who's items are delivered through this delivery system are also stakeholders, in that they wish to check the status of their package being delivered, and need to have the ability to possibly change the delivery location or cancel the order.
+
+### Data Flows: Use Cases & Misuse Cases
+
+#### 1. Creating and Canceling Orders
+
+**Context** 
+
+Bob the delivery office admin, needs to communicate to the delivery truck driver in real-time where the delivery driver's next delivery location will be.  The first task required in this process is that Bob needs to create a delivery order in the system.  Each order should include the logistical information needed for the delivery driver to successfully make the delivery of that order.  Bob would create a delivery order in the system.  One of the actions that occurs when Bob creates this delivery order in the system is that it "publishes" the delivery order to the broker, so that the broker is then able to push out that delivery order to the delivery driver.
+
+Likewise, sometimes the delivery driver needs to be informed in real-time that his current delivery order is canceled, so he should no longer deliver the current order.  Bob the delivery office admin would cancel an order in the system.  One of the actions that occurs when Bob cancels a delivery order is that it "publishes" the delivery order to the broker, so that the broker is then able to push out that "canceled order" message to the delivery driver.
+
+**MisUse Case and security requirement**
+
+Blaze the Hacker wants to steal a delivery package.  One attack vector Blaze could use is to intercept the order data as it is in transit from Bob the deliver office admin's system to the broker.  Bob's system would not be publishing a message to the broker because Blaze is intercepting the published message.  Instead, Blaze the hacker would alter the logistical information in that message, and then submit the altered version of the order to the broker.  Ultimately, Blaze would be the one that is actually publishing a message to the broker and not Bob the delivery office admin.
+
+[![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1_Dataflow_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1_Dataflow_small.png)
