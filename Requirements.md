@@ -19,8 +19,19 @@ Bob the delivery office admin, needs to communicate to the delivery truck driver
 
 Likewise, sometimes the delivery driver needs to be informed in real-time that his current delivery order is canceled, so he should no longer deliver the current order.  Bob the delivery office admin would cancel an order in the system.  One of the actions that occurs when Bob cancels a delivery order is that it "publishes" the delivery order to the broker, so that the broker is then able to push out that "canceled order" message to the delivery driver.
 
-**MisUse Case and security requirement**
+**MisUse Case**
 
 Blaze the Hacker wants to steal a delivery package.  One attack vector Blaze could use is to intercept the order data as it is in transit from Bob the deliver office admin's system to the broker.  Bob's system would not be publishing a message to the broker because Blaze is intercepting the published message.  Instead, Blaze the hacker would alter the logistical information in that message, and then submit the altered version of the order to the broker.  Ultimately, Blaze would be the one that is actually publishing a message to the broker and not Bob the delivery office admin.
 
+**Diagram**
+
 [![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1_Dataflow_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1_Dataflow_small.png)
+
+**Security Requirement**
+
+When a message is published to the broker, such as a delivery order to the delivery order to the delivery driver, the broker should confirm that the message received from Bob the Admin is truly a message from Bob the Admin, and that Bob's message has not been altered in any way.
+
+**Relevant Advertised Security Features of Mosquitto**
+
+Relevant advertised security feature are described in the [mosquitto.conf man page](https://mosquitto.org/man/libmosquitto-3.html). For the broker to authenticate that the message received is unaltered and from Bob, a combination of authentication and network based encryption options must be specified in the mosquitto.conf file. For encryption, it is important to note that encryption is turned off by default. SSL/TLS options must be specified in the configuration file to make use of encryption.  Username and password authentication are a part of the protocol for mosquitto.  It is important to use network based encryption if the user is defining the username and passwords over a network so that this critical data is not intercepted.
+
