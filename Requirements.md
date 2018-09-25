@@ -29,7 +29,7 @@ Blaze the Hacker wants to steal a delivery package.  One attack vector Blaze cou
 
 **Security Requirement**
 
-When a message is published to the broker, such as a delivery order to the delivery order to the delivery driver, the broker should confirm that the message received from Bob the Admin is truly a message from Bob the Admin, and that Bob's message has not been altered in any way.
+When a message is published to the broker, such as a delivery order to the delivery driver, the broker should confirm that the message received from Bob the Admin is truly a message from Bob the Admin, and that Bob's message has not been altered in any way.
 
 **Relevant Advertised Security Features of Mosquitto**
 
