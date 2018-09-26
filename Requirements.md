@@ -65,3 +65,21 @@ Mosquitto also supports Access Control Lists to control client access to topics 
 Mosquitto has two types of logging, System status logs and informational/debugging logs. System status logs are part of the MQTT protocol and are logged automatically to the $SYS topic that can be subscribed to on the broker. The informational/debugging logs 
 are more specific to Mosquitto and can be set to be published to a topic, to print to the console, or to write to a file. At this time, admin changes to ACLs or credential files are not logged to the System Status log, and it is unknown whether they are logged to the informational/debugging log destination.
 
+### Observation of Security-related configuration and Installation Issues
+
+All Mosquitto configurations are located in the [mosquitto.conf](https://mosquitto.org/man/mosquitto-conf-5.html) file. The location of this critical file varies depending on the operating system.  For a mac it is located in the **/usr/local/opt/mosquitto/** directory.  The entire contents of the mosquitto.conf file are commented out, though the comments do specify all the commands associated to the default configurations.  
+
+The documentation makes clear that the majority of the security features are disabled out of the box. A couple security-related configurations that stand out, which are disabled by default, are the following:
+
+* No maximum publish payload size is configured.  
+* The connections for logged in users never expire.  
+* There are no maximum number of client connections specified.  
+* SSL/TLS is turned off
+* Authentication by publishers/subscribers is optional
+* No authorization rules exist for authenticated or unauthenticated users
+* All users have full access to publish as many topics as desired
+* All users have full access to subscribe to all topics
+* All users have full access to meta data related about the broker
+
+Due to the lack of default security configurations, the creators of Mosquitto are placing much of the security-related responsibility on the system administrator. It is also up to the system administrator to setup SSL/TLS if they hope to encrypt communications.
+
