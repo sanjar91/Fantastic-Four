@@ -2,7 +2,9 @@
 ###### CYBR 8420
 ###### Project Requirements
 
-### 0. Make sure you have a back story. Where is this system being used? What is its criticality? Who are the stakeholders?
+# Requirements
+
+### Backstory
 Mosquitto is a message broker that uses the MQTT protocol for publication/subscribtion style messaging. This protocol and format of messaging was designed for connecting to a wide array of devices that might have weak signals or can't store messages that are in a larger format, such as IoT devices, embedded systems, or GPS devices.
 
 One of the more common scenarios where mosquitto is implemented is in package delivery and fleet management. An open source Software As A Service Provider, [Thingsboard](https://thingsboard.io/fleet-tracking/) uses the MQTT protocol and recommends the mosquitto MQTT clients for it's fleet tracking and fleet management software. using the pub/sub style messaging, delivery trucks in the fleet can publish their location, mileage, and subscribe to updates on the orders they are driving to complete. The scenario we used to generate our use cases, data flows and misuse cases is for a package delivery company that uses mosquitto to broadcast messages to the drivers and track the driver's status as they complete orders.
