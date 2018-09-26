@@ -37,6 +37,17 @@ When a message is published to the broker, such as a delivery order to the deliv
 
 The relevant security feature methods associated to this security requirement are located in the [libmosquitto man page](https://mosquitto.org/man/libmosquitto-3.html). Additionally, configuration is required and described in the [mosquitto-conf man page](https://mosquitto.org/man/mosquitto-conf-5.html), and the [mosquitto_passwd](https://mosquitto.org/man/mosquitto_passwd-1.html) tool is available for setting up usernames and passwords. For the broker to authenticate that the message received is unaltered and from Bob, a combination of authentication and network-based encryption options must be specified in the mosquitto.conf file. For encryption, it is important to note that encryption is turned off by default. SSL/TLS options must be specified in the configuration file to make use of encryption.  Username and password authentication are a part of the protocol for mosquitto.  It is important to use network-based encryption if the user is defining the username and passwords over a network so that this critical data is not intercepted.
 
+#### 2. Viewing Orders 
+
+**Use Case**
+Bradley the Delivery Driver opens the next order to review the delivery destination. After completing a delivery, he checks on the next order. He views a message sent from the delivery office that contains customer information and the delivery destination. 
+
+**Misuse Case**
+Lazer, the hacker, was hired by a rival company to steal customer account information. One attack vector Lazer could use is to eavesdrop on the messages being viewed by the delivery drivers. Lazer would make a database of the information and send the customer data back to the rival. 
+
+**Diagram**
+
+
 #### 3. Creating Order Log
 
 **Use Case**
