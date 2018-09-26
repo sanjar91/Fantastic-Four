@@ -58,6 +58,10 @@ Since the Order Log is a crucial entity in the fleet management system, the comp
 
 **Security Features of Mosquitto**
 
+The above described security requirements are addressed in hyperlink under the General section of the webpage. There are two features listed in Mosquitto documentation that covers the firewall rule descried above. “allow_anonymous” Boolean determines whether clients without credentials are allowed to connect. By setting this Boolean value to false, we can stop the incoming traffic from unauthenticated clients and prevent a possible DoS attack. 
+
+“allow_duplicate_messgae” Boolean limits the number of duplicate messages to one if set to false. This option is useful when clients are subscribed to multiple subscriptions that overlap. In addition, this feature is useful to the security features described above in order to deny multiple illegitimate messages coming from one client. 
+
 
 #### 4. Creating User Credentials
 
