@@ -46,13 +46,15 @@ Jake, the broker admin, creates and publishes an order log every morning. The or
 
 **MisUse Case**
 
-LaZer, the hacker, is bored and has nothing better to do with his life so he decided to sabotage the fleet management system. After his preliminary research, LaZer realizes that the order log is an important entity in this company, because all the other actors and actions rely on the order log. LaZer decides to perpetrate the order log with a Denial of Service (DoS) attack. LaZer overwhelms the order log with illegitimate superfluous requests which causes an overload and prevents the legitimate requests from being fulfilled. This attack will disrupt or possibly shutdown the company’s delivery operations.
+LaZer, the hacker, is bored and has nothing better to do with his life so he decides to sabotage the fleet management system. After his preliminary research, LaZer realizes that the order log is an important entity in this company, because all the other actors and actions rely on the order log. LaZer decides to perpetrate the order log with a Denial of Service (DoS) attack. LaZer overwhelms the order log with illegitimate superfluous requests which causes an overload and prevents the legitimate requests from being fulfilled. This attack will disrupt or possibly shutdown the company’s delivery operations.
 
 **Diagram**
 
 [![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow.png)
 
 **Security Requirement**
+
+Since the Order Log is a crucial entity in the fleet management system, the company must take all necessary actions to prevent or mitigate all possible attacks. In this case, LaZer is sending several illegitimate requests that seem legitimate and pass the firewall. This attack can be prevented by adding a rule to the firewall settings which would set a threshold to deny large amount of traffic coming from the same IP address within a short period of time. 
 
 
 **Security Features of Mosquitto**
