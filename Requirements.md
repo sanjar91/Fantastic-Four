@@ -120,7 +120,7 @@ Henry the Honest Delivery Driver checks his IoT device for the delivery informat
 
 **MisUse Case**
 
-Judas the Disgruntled employee is very unhappy in his job and recently received a poor performance review.  Judas is also upset at Henry because Henry tends to make Judas look bad.  In order to get back and Henry and cause chaos at the workplace, Judas plans on sabbotaging Henry's deliveries by canceling a number of his orders, and Judas is confident that these actions will not be able to be traced back to him.  Each time Judas cancels an order, it publishes a message to the broker which is then sent out to Henry, telling him that his current order is canceled and should not be delivered. 
+Judas the Disgruntled employee is very unhappy in his job and recently received a poor performance review.  Judas is also upset at Henry because Henry tends to make Judas look bad.  In order to get back and Henry and cause chaos at the workplace, Judas plans on sabbotaging Henry's deliveries by canceling a number of his orders, and Judas is confident that these actions will not be able to be traced back to him.  Each time Judas cancels an order, it publishes a message to the broker which is then sent out to Henry, telling him that his current order is canceled and should not be delivered. Click on the following link for further information about this MisUse Case, [Deep Dive](https://github.com/sanjar91/Fantastic-Four/blob/master/UseCase%205%20background).
 
 **Diagram**
 
