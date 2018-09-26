@@ -45,7 +45,7 @@ Bradley the Delivery Driver opens the next order to review the delivery destinat
 
 **Misuse Case**
 
-Lazer, the hacker, was hired by a rival company to steal customer account information. One attack vector Lazer could use is to eavesdrop on the messages being viewed by the delivery drivers. Lazer would make a database of the information and send the customer data back to the rival. 
+Lazer, the hacker, was hired by a rival company to steal customer account information. One attack vector Lazer could use is to eavesdrop on the messages being viewed by the delivery drivers and funnel that information back to the rival company. The rival company would then target these customers and solicit them for new business opportunities. 
 
 **Diagram**
 
