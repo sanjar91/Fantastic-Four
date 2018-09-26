@@ -49,7 +49,7 @@ Lazer, the hacker, was hired by a rival company to steal customer account inform
 
 **Diagram**
 
-[![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_2_Dataflow.png](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_2_Dataflow.png)
+[![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_2_Dataflow.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_2_Dataflow.png)
 
 **Security Requirement**
 
