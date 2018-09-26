@@ -41,7 +41,7 @@ The relevant security feature methods associated to this security requirement ar
 
 **Use Case**
 
-Bob, the broker admin, creates and publishes an order log every morning. The order log contains the list of delivery orders and schedules. Additionally, Bob can update the log by publishing or un-publishing orders. Other actors such as, Bradley (delivery driver from Use Case 2) and Henry (delivery driver from Use Case 5) also have access to the order log. The delivery drivers can view, complete, or cancel orders; and the order log is update based on the completed and/or canceled orders.
+Jake, the broker admin, creates and publishes an order log every morning. The order log contains the list of delivery orders and schedules. Additionally, Bob can update the log by publishing or un-publishing orders. Other actors such as, Bradley (delivery driver from Use Case 2) and Henry (delivery driver from Use Case 5) also have access to the order log. The delivery drivers can view, complete, or cancel orders; and the order log is update based on the completed and/or canceled orders.
 
 
 **MisUse Case**
