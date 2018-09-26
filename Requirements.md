@@ -49,6 +49,10 @@ Lazer, the hacker, was hired by a rival company to steal customer account inform
 
 **Diagram**
 
+**Security Requirement**
+
+**Security Features of Mosquitto**
+
 
 #### 3. Creating Order Log
 
