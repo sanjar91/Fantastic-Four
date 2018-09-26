@@ -40,9 +40,11 @@ The relevant security feature methods associated to this security requirement ar
 #### 2. Viewing Orders 
 
 **Use Case**
+
 Bradley the Delivery Driver opens the next order to review the delivery destination. After completing a delivery, he checks on the next order. He views a message sent from the delivery office that contains customer information and the delivery destination. 
 
 **Misuse Case**
+
 Lazer, the hacker, was hired by a rival company to steal customer account information. One attack vector Lazer could use is to eavesdrop on the messages being viewed by the delivery drivers. Lazer would make a database of the information and send the customer data back to the rival. 
 
 **Diagram**
