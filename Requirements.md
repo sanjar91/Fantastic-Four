@@ -52,6 +52,12 @@ LaZer, the hacker, is bored and has nothing better to do with his life so he dec
 
 [![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow.png)
 
+**Security Requirement**
+
+
+**Security Features of Mosquitto**
+
+
 #### 4. Creating User Credentials
 
 **Use Case**
