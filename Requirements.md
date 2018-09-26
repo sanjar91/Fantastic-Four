@@ -15,7 +15,7 @@ The stakeholders in this scenario are primarily the drivers, who want to stay up
 
 #### 1. Creating and Canceling Orders
 
-**Context** 
+**Use Case** 
 
 Bob the delivery office admin, needs to communicate to the delivery truck driver in real-time where the delivery driver's next delivery location will be.  The first task required in this process is that Bob needs to create a delivery order in the system.  Each order should include the logistical information needed for the delivery driver to successfully make the delivery of that order.  Bob would create a delivery order in the system.  One of the actions that occurs when Bob creates this delivery order in the system is that it "publishes" the delivery order to the broker so that the broker is then able to push out that delivery order to the delivery driver.
 
@@ -114,7 +114,7 @@ are more specific to Mosquitto and can be set to be published to a topic, to pri
 
 #### 5. Completing and Canceling Orders
 
-**Context** 
+**Use Case** 
 
 Henry the Honest Delivery Driver checks his IoT device for the delivery information on his next destination.  Each time he makes a delivery, he publishes a message to the broker that the delivery was made, and then proceeds to fulfill the next delivery order.  Sometimes Henry is unable to deliver the package because no one is home, so he publishes a "canceled delivery" order, and then proceeds on to the next order.
 
