@@ -46,9 +46,9 @@ Jake, the broker admin, creates and publishes an order log every morning. The or
 
 **MisUse Case**
 
-LaZer, the hacker, is bored and has nothing better to do with his life so he decided to sabotage the fleet management system. After his preliminary research, LaZer realizes that the order log is an important entity in this company, because all the other actors and actions rely on the order log. LaZer decides to perpetrate the order log with a Denial of Service (DoS) attack. LaZer overwhelms the order log with illegitimate superfluous requests which causes an overload and prevents the legitimate requests from being fulfilled. This attack will disrupt or possibly shutdown the company’s delivery operations. 
+LaZer, the hacker, is bored and has nothing better to do with his life so he decided to sabotage the fleet management system. After his preliminary research, LaZer realizes that the order log is an important entity in this company, because all the other actors and actions rely on the order log. LaZer decides to perpetrate the order log with a Denial of Service (DoS) attack. LaZer overwhelms the order log with illegitimate superfluous requests which causes an overload and prevents the legitimate requests from being fulfilled. This attack will disrupt or possibly shutdown the company’s delivery operations.
 
-[![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-dataflow.png)
+[![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow.png)]
 
 #### 4. Creating User Credentials
 
