@@ -43,14 +43,13 @@ The relevant security feature methods associated to this security requirement ar
 
 Jake, the broker admin, creates and publishes an order log every morning. The order log contains the list of delivery orders and schedules. Additionally, Bob can update the log by publishing or un-publishing orders. Other actors such as, Bradley (delivery driver from Use Case 2) and Henry (delivery driver from Use Case 5) also have access to the order log. The delivery drivers can view, complete, or cancel orders; and the order log is update based on the completed and/or canceled orders.
 
-
 **MisUse Case**
 
 LaZer, the hacker, is bored and has nothing better to do with his life so he decides to sabotage the fleet management system. After his preliminary research, LaZer realizes that the order log is an important entity in this company, because all the other actors and actions rely on the order log. LaZer decides to perpetrate the order log with a Denial of Service (DoS) attack. LaZer overwhelms the order log with illegitimate superfluous requests which causes an overload and prevents the legitimate requests from being fulfilled. This attack will disrupt or possibly shutdown the company’s delivery operations.
 
 **Diagram**
 
-[![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow.png)
+[![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow-updated.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow-updated.png)
 
 **Security Requirement**
 
