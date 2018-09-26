@@ -41,7 +41,7 @@ The relevant security feature methods associated to this security requirement ar
 
 **Use Case**
 
-Bradley the Delivery Driver opens the next order to review the delivery destination. After completing a delivery, he checks on the next order. He views a message sent from the delivery office that contains customer information and the delivery destination. 
+Bradley the Delivery Driver opens the next order to review the delivery destination. After completing a delivery, he checks on the next order. He views a message sent from Bob the delivery office administrator that contains customer information and the delivery destination. Bradley continues on to his next drop off location provided by the order log.
 
 **Misuse Case**
 
