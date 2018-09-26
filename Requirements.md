@@ -43,6 +43,7 @@ The relevant security feature methods associated to this security requirement ar
 Jake, the System Admin, needs to authenticate the devices and users that are connecting to the broker, and block connection attempts that don't have valid credentials. In order to complete this, Jake first creates a password file that contains usernames and passwords for accessing the broker. Jake then uploads the credential file to a folder the broker can access and updates the config to enable user authentication.
 
 **MisUse Case**
+
 Blaze, the hacker, needs to authenticate himself with the broker so that he can monitor published messages. One attack vector Blaze could use is to rename the credential file uploaded for the broker to access, and upload a fake credential file with the same naming conventions as the original file with usernames and passwords that Blaze wrote for the broker to use for authentication.
 
 Another attack vector Blaze could use is to change the file permissions of the credential file so that he can write to the file and add his own credentials to the file.
@@ -72,6 +73,7 @@ are more specific to Mosquitto and can be set to be published to a topic, to pri
 Henry the Honest Delivery Driver checks his IoT device for the delivery information on his next destination.  Each time he makes a delivery, he publishes a message to the broker that the delivery was made, and then proceeds to fulfill the next delivery order.  Sometimes Henry is unable to deliver the package because no one is home, so he publishes a "canceled delivery" order, and then proceeds on to the next order.
 
 **MisUse Case**
+
 Judas the Disgruntled employee is very unhappy in his job and recently received a poor performance review.  Judas is also upset at Henry because Henry tends to make Judas look bad.  In order to get back and Henry and cause chaos at the workplace, Judas plans on sabbotaging Henry's deliveries by canceling a number of his orders, and Judas is confident that these actions will not be able to be traced back to him.  Each time Judas cancels an order, it publishes a message to the broker which is then sent out to Henry, telling him that his current order is canceled and should not be delivered. 
 
 **Diagram**
@@ -79,10 +81,12 @@ Judas the Disgruntled employee is very unhappy in his job and recently received 
 [![data_flow_5](https://github.com/sanjar91/Fantastic-Four/blob/master/images/user_case_5_dataflow_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/user_case_5_dataflow_small.png)
 
 **Security Requirement**
+
 Delivery drivers should be authenticated in the system so that their identify and actions are known.  Also, authorization mechanisms should be in place so that it is controlled which topics delivery drivers are able to publish/subscribe to.  
 
 
 **Relevant Advertised Security Features of Mosquitto**
+
 Authentication is built into the system, though it requires configuration in the [mosquitto-conf file](https://mosquitto.org/man/mosquitto-conf-5.html).  Authorization is built into the system, and requires a system administrator to enter the authorization rules in an access control list file.    
 
 ### Observation of Security-Related Configuration and Installation Issues
