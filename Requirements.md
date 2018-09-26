@@ -37,6 +37,16 @@ When a message is published to the broker, such as a delivery order to the deliv
 
 The relevant security feature methods associated to this security requirement are located in the [libmosquitto man page](https://mosquitto.org/man/libmosquitto-3.html). Additionally, configuration is required and described in the [mosquitto-conf man page](https://mosquitto.org/man/mosquitto-conf-5.html), and the [mosquitto_passwd](https://mosquitto.org/man/mosquitto_passwd-1.html) tool is available for setting up usernames and passwords. For the broker to authenticate that the message received is unaltered and from Bob, a combination of authentication and network-based encryption options must be specified in the mosquitto.conf file. For encryption, it is important to note that encryption is turned off by default. SSL/TLS options must be specified in the configuration file to make use of encryption.  Username and password authentication are a part of the protocol for mosquitto.  It is important to use network-based encryption if the user is defining the username and passwords over a network so that this critical data is not intercepted.
 
+#### 3. Creating Order Log
+
+**Use Case**
+
+Bob, the broker admin, creates and publishes an order log every morning. The order log contains the list of delivery orders and schedules. Additionally, Bob can update the log by publishing or un-publishing orders. Other actors such as, Bradley (delivery driver from Use Case 2) and Henry (delivery driver from Use Case 5) also have access to the order log. The delivery drivers can view, complete, or cancel orders; and the order log is update based on the completed and/or canceled orders.
+
+
+**MisUse Case**
+
+LaZer, the hacker, is bored and has nothing better to do with his life so he decided to sabotage the fleet management system. After his preliminary research, LaZer realizes that the order log is an important entity in this company, because all the other actors and actions rely on the order log. LaZer decides to perpetrate the order log with a Denial of Service (DoS) attack. LaZer overwhelms the order log with illegitimate superfluous requests which causes an overload and prevents the legitimate requests from being fulfilled. This attack will disrupt or possibly shutdown the company’s delivery operations. 
 
 #### 4. Creating User Credentials
 
