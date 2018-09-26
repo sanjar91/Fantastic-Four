@@ -112,7 +112,7 @@ Mosquitto also supports Access Control Lists to control client access to topics 
 Mosquitto has two types of logging, System status logs and informational/debugging logs. System status logs are part of the MQTT protocol and are logged automatically to the $SYS topic that can be subscribed to on the broker. The informational/debugging logs 
 are more specific to Mosquitto and can be set to be published to a topic, to print to the console, or to write to a file. At this time, admin changes to ACLs or credential files are not logged to the System Status log, and it is unknown whether they are logged to the informational/debugging log destination.
 
-#### 5. Creating and Canceling Orders
+#### 5. Completing and Canceling Orders
 
 **Context** 
 
