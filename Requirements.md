@@ -53,6 +53,8 @@ Lazer, the hacker, was hired by a rival company to steal customer account inform
 
 **Security Requirement**
 
+When a message is viewed by the delivery guy, the broker should prevent someone from accessing the payload and accessing the delivery location information. 
+
 **Security Features of Mosquitto**
 
 Security features offered by Mosquitto that address port setting requirements are located in the mosquitto.conf documentation under the Certificate based SSL/TLS Support. The overall aim is encryption of the network traffic. By setting the required certificate setting to "true" forces the client to provide a valid certificate in order to connect to the network. As a result, the certificates files must have ".pem" as the file ending and the client must run "openssl rehash <path to capath>" each time they want to add/remove a certificate. 
