@@ -105,28 +105,6 @@ The system should have a procedure in place which prevents errors when setting u
 
 In the [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the **Authentication** section, it explains the necessary configuration options for an access control list (ACL) file if it is to be used.  Unfortunately: policies must be typed directly into the ACL file.  This leaves room for errors.  Unlike the mosquitto_passwd utility, there is no existing utility that would provide a convenient interface to the user for them to modify the ACL file.  
 
-#### 2. Viewing Orders 
-
-**Use Case**
-
-Bradley the Delivery Driver opens the next order to review the delivery destination. After completing a delivery, he checks on the next order. He views a message sent by the broker from "Bob" the delivery office administrator that contains customer information and the delivery destination. Bradley continues on to his next drop off location provided by the order log.
-
-**Misuse Case**
-
-Lazer, the hacker, was hired by a rival company to steal customer account information. One attack vector Lazer could use is to eavesdrop on the messages being viewed by the delivery drivers and funnel that information back to the rival company. The rival company would then target these customers and solicit them for new business opportunities. 
-
-**Diagram**
-
-[![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_2_Dataflow_2.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_2_Dataflow_2.png)
-
-**Security Requirement**
-
-When a message is viewed by the delivery guy, the broker should prevent someone from accessing the payload and accessing the delivery location information. 
-
-**Security Features of Mosquitto**
-
-Security features offered by Mosquitto that address port setting requirements are located in the mosquitto.conf documentation under the Certificate based SSL/TLS Support. The overall aim is encryption of the network traffic. By setting the required certificate setting to "true" forces the client to provide a valid certificate in order to connect to the network. As a result, the certificates files must have ".pem" as the file ending and the client must run "openssl rehash <path to capath>" each time they want to add/remove a certificate. 
-
 #### 3. Creating Order Log
 
 **Use Case**
