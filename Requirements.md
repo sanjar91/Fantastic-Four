@@ -117,7 +117,7 @@ LaZer, the hacker, is bored and has nothing better to do with his life so he dec
 
 **Diagram**
 
-[![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow-updated.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/UseCase-3-Dataflow-updated.png)
+[![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/DoS.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/DoS.png)
 
 **Security Requirement**
 
