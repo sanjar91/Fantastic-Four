@@ -161,28 +161,34 @@ Mosquitto also supports Access Control Lists to control client access to topics 
 Mosquitto has two types of logging, System status logs and informational/debugging logs. System status logs are part of the MQTT protocol and are logged automatically to the $SYS topic that can be subscribed to on the broker. The informational/debugging logs 
 are more specific to Mosquitto and can be set to be published to a topic, to print to the console, or to write to a file. At this time, admin changes to ACLs or credential files are not logged to the System Status log, and it is unknown whether they are logged to the informational/debugging log destination.
 
-#### 5. Completing and Canceling Orders
+#### 5. Subscribing to System Topic $SYS
 
-**Use Case** 
+**Use Case**
 
-Henry the Honest Delivery Driver checks his IoT device for the delivery information on his next destination.  Each time he makes a delivery, he publishes a message to the broker that the delivery was made, and then proceeds to fulfill the next delivery order.  Sometimes Henry is unable to deliver the package because no one is home, so he publishes a "canceled delivery" order, and then proceeds on to the next order.
+This use case centers around a key responsibility of a Systems Administrator (or in this scenario, Broker administrator), monitoring the status of the broker.
 
-**MisUse Case**
+Jake, the broker admin, needs to be able to monitor the status of the broker, and pull statistics from the broker to log externally. He accomplishes this by subscribing to the $SYS topic that is hosted on the broker.
 
-Judas the Disgruntled employee is very unhappy in his job and recently received a poor performance review.  Judas is also upset at Henry because Henry tends to make Judas look bad.  In order to get back and Henry and cause chaos at the workplace, Judas plans on sabbotaging Henry's deliveries by canceling a number of his orders, and Judas is confident that these actions will not be able to be traced back to him.  Each time Judas cancels an order, it publishes a message to the broker which is then sent out to Henry, telling him that his current order is canceled and should not be delivered. Click on the following link for further information about this MisUse Case, [Deep Dive](https://github.com/sanjar91/Fantastic-Four/blob/master/deep_dive.md).
+It is important to note that there is an assumption within this use case about our broker's configuration. Part of the MQTT messaging protocol dictates that System level statistics and statuses are published on every MQTT broker in a topic labeled "$SYS". While we are staying out of the technical confines and definitions of our system and software while generating our use cases, and the actual definitions of what is published in this topic is still vague, this is a [well-defined requirement](https://github.com/mqtt/mqtt.github.io/wiki/SYS-Topics) of every MQTT broker instance, so it is assumed that the broker used in our scenario will have a $SYS topic where information pertaining to our broker will be published.
 
+**Mis-Use Case**
+
+Darrel, a hacker hired by a rival package delivery company, wishes to spy on the amount of orders in Jake's system. He attempts to accomplish this by trying to subscribe to the $SYS topic on the example broker, since it is again well known that every MQTT broker instance has a $SYS topic published. 
+
+One additional assumption is made with this use case and misuse case for the sake of generating different security requirements. Since every additional use case published in our assignment has brought authentication as a mitigation step in some form, we are assuming that this broker is already implementing authentication, and that Darrel is attempting to subscribe to the $SYS topic with stolen credentials.
+
+**Prevention**
+
+Authorization is a feature that should be implemented in order to prevent this attack pattern from successfully happening. Only users with a specific type of access to the example broker should be able to subscribe to the $SYS topic since sensitive information pertaining to the system could be published to this topic.
+
+**Mis-use case evolved**
+
+In order to evolve past the use of authorization, Darrell instead attacks the use of authorization itself. He attempts this by trying to change the configuration of the broker through sending a SIGHUP (or signal update) command 
+to the broker.
+
+**Prevention Evolved**
 **Diagram**
-
-[![data_flow_5](https://github.com/sanjar91/Fantastic-Four/blob/master/images/user_case_5_dataflow_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/user_case_5_dataflow_small.png)
-
-**Security Requirement**
-
-Delivery drivers should be authenticated in the system so that their identify and actions are known.  Also, authorization mechanisms should be in place so that it is controlled which topics delivery drivers are able to publish/subscribe to.  
-
-
-**Relevant Advertised Security Features of Mosquitto**
-
-Authentication is built into the system, though it requires configuration in the [mosquitto-conf file](https://mosquitto.org/man/mosquitto-conf-5.html).  Authorization is built into the system, and requires a system administrator to enter the authorization rules in an access control list file.    
+**Relevant Advertised Security Features of Mosquitto**  
 
 ### Observation of Security-Related Configuration and Installation Issues
 
