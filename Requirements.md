@@ -52,23 +52,23 @@ There are various methods available to authenticate the user, and more than one 
 
 **Use Case** 
 
-This use case is closely related to the use case described in #1, but it is from the perspective of the delivery driver.  Henry the honest delivery driver "subscribes" to the delivery orders that Bob the Office Admin "publishes."  In this way, Bob has the delivery information need to make deliveries, and will also be informed when deliveries are canceled. 
+This use case is closely related to the use case described in #1, but it is from the perspective of the delivery driver.  Henry the honest delivery driver "subscribes" to the delivery orders that Bob the Office Admin "publishes."  In this way, Bob has the delivery information needed to make deliveries, and will also be informed when deliveries are canceled. 
 
 **Misuse Case**
 
-The intent of the attacker is different than in #1, but the attack is the same.  In this scenario, the attacker is a disgruntled driver, and for the sole purpose of sabotaging operations, Judas the disgruntled delivery driver publishes messages that say deliveries are canceled when they truly are not. 
+The intent of the attacker is different than in #1, but the attack is the same.  In this scenario, the attacker is a disgruntled driver, and for the sole purpose of sabotaging operations: Judas the disgruntled delivery driver publishes messages that say deliveries are canceled when they truly are not. 
 
 **Prevention**
 
-The prevention is the same as in #1: authentication
+The prevention is the same as in #1: authentication.
 
 **Misuse Case Evolved** 
 
-The misuse case evolved is the same as in #1: perform a dictionary attack
+The misuse case evolved is the same as in #1: perform a dictionary attack.
 
 **Prevention Evolved**
 
-#1 described duel factor authentication as a mitigation technique.  Another technique that could be used that would mitigate a dictionary attack is for the mosquitto to require strong passwords based off of well defined criteria. 
+#1 described duel factor authentication as a mitigation technique.  Another technique that could be used that would mitigate a dictionary attack is for mosquitto to require strong passwords based off of well defined criteria. 
 
 **Diagram**
 
@@ -81,9 +81,29 @@ There exists the utility [mosquitto_passwd](https://mosquitto.org/man/mosquitto_
 
 #### 3.
 
-This data flow can be described as a comination of the first and second dataflows described above.  In this scenario, Judas the disgruntled employee's goal is not to cause chaos for business, but instead his goal is to steal packages.  One way he could do this is to steal packages located on a delivery truck that is not assigned to him, and in the system mark the delivery of that package as complete.
- 
+**Use Case / Misuse Case**
 
+This data flow can be described as a combination of the first and second dataflows described above.  In this scenario, Judas the disgruntled employee's goal is not to cause chaos for the business, but instead his goal is to steal delivery packages.  One way he could do this is to steal packages located on a delivery truck that is not assigned to him, and in the system mark the delivery of those packages as complete.
+
+**Prevention**
+ 
+ Prevention of this attack is to incorporate authorization into the system (which assumes that authentication is already incorporated in the system from data flows #1 and #2).  This way, system administrators will be able to tell who marked the delivery of a package as complete, so if a customer complains that they never received their package, the logs will be able to show that Judas the disgruntled employee is the one that marked it as completed and not Henry the honest delivery driver.
+
+**Misuse Case Evolved**
+
+Judas might be able to find a way around this if he discovers that the authorization file was not configured correctly, or if he discovers a loophole in the rules defined in the authorization.
+
+**Prevention Case Evolved**
+
+The system should have a procedure in place which prevents errors when setting up or modifying the authorization policies.  This could come in the form of a utility, much like mosquitto's mosquitto_passwd utility. 
+
+**Diagram**
+
+[![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case3_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_3.png)
+
+**Relevant Security Features in Mosquitto**
+
+In the [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the **Authentication** section, it explains the necessary configuration options for an access control list (ACL) file if it is to be used.  Unfortunately: policies must be typed directly into the ACL file.  This leaves room for errors.  Unlike the mosquitto_passwd utility, there is no existing utility that would provide a convenient interface to the user for them to modify the ACL file.  
 
 #### 2. Viewing Orders 
 
