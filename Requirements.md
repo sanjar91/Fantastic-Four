@@ -1,4 +1,4 @@
-###### Fantastic Four
+﻿###### Fantastic Four
 ###### CYBR 8420
 ###### Project Requirements
 
@@ -187,8 +187,15 @@ In order to evolve past the use of authorization, Darrell instead attacks the us
 to the broker.
 
 **Prevention Evolved**
+A combination of increased use of authorization, along with Logging of SIGHUP commands and other commands of this nature should be implemented in order to prevent this command from successfully altering authorization of the broker.
+
 **Diagram**
+
+[![data_flow_5](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_4_Dataflow_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/user_case_5-updated_dataflow_small.png)
+
 **Relevant Advertised Security Features of Mosquitto**  
+
+
 
 ### Observation of Security-Related Configuration and Installation Issues
 
