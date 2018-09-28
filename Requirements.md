@@ -19,23 +19,33 @@ The stakeholders in this scenario are primarily the drivers, who want to stay up
 
 Bob the delivery office admin, needs to communicate to the delivery truck driver in real-time where the delivery driver's next delivery location will be.  The first task required in this process is that Bob needs to create a delivery order in the system.  Each order should include the logistical information needed for the delivery driver to successfully make the delivery of that order.  Bob would create a delivery order in the system.  One of the actions that occurs when Bob creates this delivery order in the system is that it "publishes" the delivery order to the broker so that the broker is then able to push out that delivery order to the delivery driver.
 
-Likewise, sometimes the delivery driver needs to be informed in real-time that his current delivery order is canceled so he knows to no longer deliver the current order.  Bob the delivery office admin would cancel an order in the system.  One of the actions that occurs when Bob cancels a delivery order is that it "publishes" the delivery order to the broker, so that the broker is then able to push out the "canceled order" message to the delivery driver.
-
+Likewise, sometimes the delivery driver needs to be informed in real-time that his current delivery order is canceled so he knows to no longer deliver the current order.  Bob the delivery office admin would cancel an order in the system.  One of the actions that occurs when Bob cancels a delivery order is that it "publishes" the delivery order to the broker, so that the broker is then able to push out the "canceled order" message to the delivery driver.  
+  
 **MisUse Case**
 
-Blaze the Hacker wants to steal a delivery package.  One attack vector Blaze could use is to intercept the order data as it is in transit from Bob the delivery office admin's system to the broker.  Bob's system would not be publishing a message to the broker because Blaze is intercepting the published message.  Instead, Blaze the hacker would alter the logistical information in that message, and then submit the altered version of the order to the broker.  Ultimately, Blaze would be the one that is actually publishing a message to the broker and not Bob.
+It is important to note that the two main commands in Mosquitto is that you either "publish" messages, or you "subscribe" to messages.  Both the "create orders" and "cancel orders" would ultimately be sending publish commands.
+
+Blaze the Hacker wants to steal a delivery package.  One way he can do this is to cancel a legitimate order, and then create the same order but with a different address.
+
+**Prevention**
+
+To prevent this misuse case, authentication should be present in mosquitto.  That is: only authenticated users should be able to create and cancel orders.
+
+**MisUse Case Evolved**
+
+Blaze the Hacker would need to get around the authentication, and one common attack again authenication is dictionary attacks.
+
+**Prevention Evolved**
+
+To mitigate a dictionary attack, a common strategy is duel factor authentication. That is: confirming the user's identify by more than one method.  This way: an attacker would have to spoof both forms of authentication.
 
 **Diagram**
 
-[![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1_Dataflow_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1_Dataflow_small.png)
-
-**Security Requirement**
-
-When a message is published to the broker, such as a delivery order to the delivery driver, the broker should confirm that the message received from Bob the delivery office admin is truly a message from Bob, and that Bob's message has not been altered in any way.
+[![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1.png)
 
 **Relevant Advertised Security Features of Mosquitto**
 
-The relevant security feature methods associated to this security requirement are located in the [libmosquitto man page](https://mosquitto.org/man/libmosquitto-3.html). Additionally, configuration is required and described in the [mosquitto-conf man page](https://mosquitto.org/man/mosquitto-conf-5.html), and the [mosquitto_passwd](https://mosquitto.org/man/mosquitto_passwd-1.html) tool is available for setting up usernames and passwords. For the broker to authenticate that the message received is unaltered and from Bob, a combination of authentication and network-based encryption options must be specified in the mosquitto.conf file. For encryption, it is important to note that encryption is turned off by default. SSL/TLS options must be specified in the configuration file to make use of encryption.  Username and password authentication are a part of the protocol for mosquitto.  It is important to use network-based encryption if the user is defining the username and passwords over a network so that this critical data is not intercepted.
+There are various methods available to authenticate the user, and more than one method can be required.  This is described in the  [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the **Authentication** section. 
 
 #### 2. Viewing Orders 
 
