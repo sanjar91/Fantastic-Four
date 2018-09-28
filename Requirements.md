@@ -13,7 +13,7 @@ The stakeholders in this scenario are primarily the drivers, who want to stay up
 
 ### Data Flows: Use Cases & Misuse Cases
 
-#### 1. Creating and Canceling Orders
+#### 1. 
 
 **Use Case** 
 
@@ -46,6 +46,44 @@ To mitigate a dictionary attack, a common strategy is duel factor authentication
 **Relevant Advertised Security Features of Mosquitto**
 
 There are various methods available to authenticate the user, and more than one method can be required.  This is described in the  [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the **Authentication** section. 
+
+
+#### 2.
+
+**Use Case** 
+
+This use case is closely related to the use case described in #1, but it is from the perspective of the delivery driver.  Henry the honest delivery driver "subscribes" to the delivery orders that Bob the Office Admin "publishes."  In this way, Bob has the delivery information need to make deliveries, and will also be informed when deliveries are canceled. 
+
+**Misuse Case**
+
+The intent of the attacker is different than in #1, but the attack is the same.  In this scenario, the attacker is a disgruntled driver, and for the sole purpose of sabotaging operations, Judas the disgruntled delivery driver publishes messages that say deliveries are canceled when they truly are not. 
+
+**Prevention**
+
+The prevention is the same as in #1: authentication
+
+**Misuse Case Evolved** 
+
+The misuse case evolved is the same as in #1: perform a dictionary attack
+
+**Prevention Evolved**
+
+#1 described duel factor authentication as a mitigation technique.  Another technique that could be used that would mitigate a dictionary attack is for the mosquitto to require strong passwords based off of well defined criteria. 
+
+**Diagram**
+
+[![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_2.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_2.png)
+
+**Relevant Utility in Mosquitto**
+
+There exists the utility [mosquitto_passwd](https://mosquitto.org/man/mosquitto_passwd-1.html) which assists with managing password files. One is able to create a user/password combination to be added into the password file, but no available options exist which require the password to be a strong password.  
+
+
+#### 3.
+
+This data flow can be described as a comination of the first and second dataflows described above.  In this scenario, Judas the disgruntled employee's goal is not to cause chaos for business, but instead his goal is to steal packages.  One way he could do this is to steal packages located on a delivery truck that is not assigned to him, and in the system mark the delivery of that package as complete.
+ 
+
 
 #### 2. Viewing Orders 
 
