@@ -41,7 +41,7 @@ To mitigate a dictionary attack, a common strategy is duel factor authentication
 
 **Diagram**
 
-[![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1.png)
+[![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case1_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1.png)
 
 **Relevant Advertised Security Features of Mosquitto**
 
@@ -72,7 +72,7 @@ The misuse case evolved is the same as in #1: perform a dictionary attack
 
 **Diagram**
 
-[![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_2.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_2.png)
+[![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case2_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_2.png)
 
 **Relevant Utility in Mosquitto**
 
