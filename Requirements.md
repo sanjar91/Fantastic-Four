@@ -151,7 +151,7 @@ To mitigate a targeted phishing attack, a common strategy is duel factor authent
 
 **Relevant Advertised Security Features of Mosquitto**
 
-There are various methods available to authenticate the user, and more than one method can be required. This is described in the [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the Authentication section. Mosquitto offers a form of duel factor authentication by combining username and password settings with a pre-shared-key file, where the key is a hexadecimal string. This option requires a listener to be have PSK support enabled. A client connecting to a listener that has PSK support enabled must provide a matching identity and PSK to allow the encrypted connection to proceed. 
+There are various methods available to authenticate the user, and more than one method can be required. This is described in the [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the **Authentication** section. Mosquitto offers a form of duel factor authentication by combining username and password settings with a pre-shared-key file, where the key is a hexadecimal string. This option requires a listener to be have PSK support enabled. A client connecting to a listener that has PSK support enabled must provide a matching identity and PSK to allow the encrypted connection to proceed. 
 
 #### 5. 
 
