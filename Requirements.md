@@ -147,11 +147,11 @@ Lazer, the hacker, is a System Administrator that was recently laid off from the
 
 **Security Requirement**
 
-To mitigate a targeted phishing attack, a common strategy is duel factor authentication. This would be a multi identity design that could use RSA tag or a push that acts as a secondary credential in conjunction with the username and password. An Intrusion Prevention System would add further security and block malicious activity by recognizing bad patterns, such as Malware.  
+To mitigate a targeted phishing attack, a common strategy is duel factor authentication. This would be a multi identity design that could use RSA tag or a push that acts as a secondary credential in conjunction with the username and password. The inclusion of an Intrusion Prevention System would add further security and block malicious activity by recognizing bad patterns, such as Malware.  
 
 **Security Features of Mosquitto**
 
-There are various methods available to authenticate the user, and more than one method can be required. This is described in the mosquitto.conf man page in the Authentication section.
+There are various methods available to authenticate the user, and more than one method can be required. This is described in the [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the Authentication section.
 
 #### 5. 
 
@@ -178,12 +178,13 @@ Authorization is a feature that should be implemented in order to prevent this a
 In order to evolve past the use of authorization, Darrell instead attacks the use of authorization itself. He attempts this by trying to change the configuration of the broker through sending a SIGHUP (or signal update) command 
 to the broker.
 
-**Prevention Evolved**
-A combination of increased use of authorization, along with Logging of SIGHUP commands and other commands of this nature should be implemented in order to prevent this command from successfully altering authorization of the broker.
-
 **Diagram**
 
 [![data_flow_5](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_4_Dataflow_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/user_case_5-updated_dataflow_small.png)
+
+**Prevention Evolved**
+
+A combination of increased use of authorization, along with Logging of SIGHUP commands and other commands of this nature should be implemented in order to prevent this command from successfully altering authorization of the broker.
 
 **Relevant Advertised Security Features of Mosquitto**
   
