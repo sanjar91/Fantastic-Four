@@ -147,7 +147,7 @@ Lazer, the hacker, is a System Administrator that was recently laid off from the
 
 **Security Requirement**
 
-To mitigate a targeted phishing attack, a common strategy is duel factor authentication. This would be a multi identity design that could use RSA tag or a push that acts as a secondary credential in conjunction with the username and password. An Intrusion Prevention System would add further security as it monitors and blocks malicious activity by recognizing bad patterns, such as Malware.  
+To mitigate a targeted phishing attack, a common strategy is duel factor authentication. This would be a multi identity design that could use RSA tag or a push that acts as a secondary credential in conjunction with the username and password. An Intrusion Prevention System would add further security and block malicious activity by recognizing bad patterns, such as Malware.  
 
 **Security Features of Mosquitto**
 
