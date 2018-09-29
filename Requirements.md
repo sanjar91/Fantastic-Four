@@ -43,6 +43,9 @@ To mitigate a dictionary attack, a common strategy is duel factor authentication
 
 [![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case1_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1.png)
 
+**Security Requirement**
+Mosquitto should have a duel factor authentication feature in order to prevent dictionary attacks.
+
 **Relevant Advertised Security Features of Mosquitto**
 
 There are various methods available to authenticate the user, and more than one method can be required.  This is described in the  [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the **Authentication** section. 
@@ -74,6 +77,9 @@ The misuse case evolved is the same as in #1: perform a dictionary attack.
 
 [![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case2_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_2.png)
 
+**Security Requirement**
+Mosquitto should require strongo passwords to prevent dictionary attacks.
+
 **Relevant Advertised Security Features of Mosquitto**
 
 There exists the utility [mosquitto_passwd](https://mosquitto.org/man/mosquitto_passwd-1.html) which assists with managing password files. One is able to create a user/password combination to be added into the password file, but no available options exist which require the password to be a strong password.  
@@ -100,6 +106,10 @@ The system should have a procedure in place which prevents errors when setting u
 **Diagram**
 
 [![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case3_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_3.png)
+
+**Security Requirement**
+Mosquitto should have a utility in place which a user friendly and helps ensure the correct policies are defined in the ACL file. 
+
 
 **Relevant Advertised Security Features of Mosquitto**
 
