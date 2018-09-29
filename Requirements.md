@@ -164,7 +164,7 @@ Jake, the broker admin, needs to be able to monitor the status of the broker, an
 
 It is important to note that there is an assumption within this use case about our broker's configuration. Part of the MQTT messaging protocol dictates that System level statistics and statuses are published on every MQTT broker in a topic labeled "$SYS". While we are staying out of the technical confines and definitions of our system and software while generating our use cases, and the actual definitions of what is published in this topic is still vague, this is a [well-defined requirement](https://github.com/mqtt/mqtt.github.io/wiki/SYS-Topics) of every MQTT broker instance, so it is assumed that the broker used in our scenario will have a $SYS topic where information pertaining to our broker will be published.
 
-**Mis-Use Case**
+**MisUse Case**
 
 Darrel, a hacker hired by a rival package delivery company, wishes to spy on the amount of orders in Jake's system. He attempts to accomplish this by trying to subscribe to the $SYS topic on the example broker, since it is again well known that every MQTT broker instance has a $SYS topic published. 
 
