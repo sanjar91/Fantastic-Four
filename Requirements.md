@@ -109,11 +109,12 @@ In the [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html
 
 **Use Case**
 
-Jake, the broker admin, creates and publishes an order log every morning. The order log contains the list of delivery orders and schedules. Additionally, Bob can update the log by publishing or un-publishing orders. Other actors such as, Bradley (delivery driver from Use Case 2) and Henry (delivery driver from Use Case 5) also have access to the order log. The delivery drivers can view, complete, or cancel orders; and the order log is update based on the completed and/or canceled orders.
+Jake, the broker admin, creates and publishes a scheduling order log every morning. The order log contains the list of delivery orders and schedules. Other actors such as, Bob, the delivery office admin, can publish or cancel orders in the order log, Henry, the honest delivery driver, subscribes to the order log. Jake can view, complete, or cancel orders; and the order log is update based on the completed and/or canceled orders.
 
 **MisUse Case**
 
-LaZer, the hacker, is bored and has nothing better to do with his life so he decides to sabotage the fleet management system. After his preliminary research, LaZer realizes that the order log is an important entity in this company, because all the other actors and actions rely on the order log. LaZer decides to perpetrate the order log with a Denial of Service **(DoS)** attack. LaZer overwhelms the order log with illegitimate superfluous requests which causes an overload and prevents the legitimate requests from being fulfilled. This attack will disrupt or possibly shutdown the company’s delivery operations.
+LaZer, the hacker, is bored and has nothing better to do with his life so he decides to sabotage the fleet management system. After his preliminary research, LaZer realizes that the order log is an important entity in this company, because all the other actors and actions rely on the order log. LaZer decides to perpetrate the order log with a Denial of Service (DoS) attack. LaZer overwhelms the order log with illegitimate superfluous connection requests which causes an overload and prevents the legitimate requests from being fulfilled. This attack will disrupt or possibly shutdown the company’s delivery operations. In case the fleet management system has contingencies put in place to mitigate system overload due to numberless connection requests; LaZer has a backup DoS attack which will overload the system by sending extensive ping requests from a single connection. 
+
 
 **Diagram**
 
@@ -121,8 +122,7 @@ LaZer, the hacker, is bored and has nothing better to do with his life so he dec
 
 **Security Requirement**
 
-Since the Order Log is a crucial entity in the fleet management system, the company must take all necessary actions to prevent or mitigate all possible attacks. In this case, LaZer is sending several illegitimate requests that seem legitimate and pass the firewall. This attack can be prevented by adding a rule to the firewall settings which would set a threshold to deny large amount of traffic coming from the same IP address within a short period of time. 
-
+Since the Order Log is a crucial entity in the fleet management system, the company must take all necessary actions to prevent or mitigate all possible attacks. In this case, LaZer is sending large amount of illegitimate requests that seem legitimate and pass the firewall. This attack can be prevented by adding a rule to the firewall settings which would limit the number of connection requests. And to prevent extensive amount of requests from a single connection, a firewall rule must be added to set a threshold to deny large amount of traffic coming from the same IP address within a short period of time.  
 
 **Security Features of Mosquitto**
 
