@@ -140,7 +140,7 @@ Jake, the System Admin, is responsible for the upkeep, configuration, and operat
 
 **MisUse Case**
 
-Lazer, the hacker, is a System Administrator that was recently laid off from the parent company who owns Fleet Management and feels he has a score to settle. He looks for a smaller subsidiary with a significant reach in both billings and clients and that would cause the most disruption to the organization. Lazer creates a phishing campaign specifically to target Fleet Managements System Administrator. The campaign is for a fake a system update and when Jake, the unsuspecting system administrator, clicks the download option it places malware onto his computer. Once Lazer has Jake's login credentials, he plans to compromise the integrity of the Fleet Management systems and stop day-to-day operations. 
+Lazer, the hacker, is a System Administrator that was recently laid off from the parent company who owns Fleet Management and feels he has a score to settle. He looks for a smaller subsidiary with a significant reach in both billings and clients that would cause the most disruption to the organization. Lazer creates a phishing campaign specifically to target Fleet Managements System Administrator. The campaign is for a fake system update and when Jake, the unsuspecting system administrator, clicks the download option it places malware onto his computer. Once Lazer has Jake's login credentials, he plans to compromise the integrity of the Fleet Management systems and stop day-to-day operations. 
 
 **Diagram**
 
