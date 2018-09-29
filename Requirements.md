@@ -13,7 +13,7 @@ The stakeholders in this scenario are primarily the drivers, who want to stay up
 
 ### Data Flows: Use Cases & Misuse Cases
 
-#### 1. 
+#### 1.1 
 
 **Use Case** 
 
@@ -48,7 +48,7 @@ To mitigate a dictionary attack, a common strategy is duel factor authentication
 There are various methods available to authenticate the user, and more than one method can be required.  This is described in the  [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the **Authentication** section. 
 
 
-#### 2.
+#### 1.2
 
 **Use Case** 
 
@@ -79,7 +79,7 @@ The misuse case evolved is the same as in #1: perform a dictionary attack.
 There exists the utility [mosquitto_passwd](https://mosquitto.org/man/mosquitto_passwd-1.html) which assists with managing password files. One is able to create a user/password combination to be added into the password file, but no available options exist which require the password to be a strong password.  
 
 
-#### 3.
+#### 2.
 
 **Use Case / Misuse Case**
 
@@ -105,7 +105,7 @@ The system should have a procedure in place which prevents errors when setting u
 
 In the [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the **Authentication** section, it explains the necessary configuration options for an access control list (ACL) file if it is to be used.  Unfortunately: policies must be typed directly into the ACL file.  This leaves room for errors.  Unlike the mosquitto_passwd utility, there is no existing utility that would provide a convenient interface to the user for them to modify the ACL file.  
 
-#### 4. 
+#### 3. 
 
 **Use Case**
 
@@ -131,7 +131,7 @@ The above described security requirements are addressed in [mosquitto-conf man p
 “*allow_duplicate_messgae*” Boolean limits the number of duplicate messages to one if set to false. This option is useful when clients are subscribed to multiple subscriptions that overlap. In addition, this feature is useful to the security features described above in order to deny multiple illegitimate messages coming from one client. 
 
 
-#### 5. 
+#### 4. 
 
 **Use Case**
 
@@ -153,7 +153,7 @@ To mitigate a targeted phishing attack, a common strategy is duel factor authent
 
 There are various methods available to authenticate the user, and more than one method can be required. This is described in the mosquitto.conf man page in the Authentication section.
 
-#### 6. Subscribing to System Topic $SYS
+#### 5. 
 
 **Use Case**
 
