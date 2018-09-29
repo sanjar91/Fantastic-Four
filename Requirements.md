@@ -131,7 +131,7 @@ The above described security requirements are addressed in [mosquitto-conf man p
 “*allow_duplicate_messgae*” Boolean limits the number of duplicate messages to one if set to false. This option is useful when clients are subscribed to multiple subscriptions that overlap. In addition, this feature is useful to the security features described above in order to deny multiple illegitimate messages coming from one client. 
 
 
-#### 4. Creating User Credentials
+#### 4. 
 
 **Use Case**
 
