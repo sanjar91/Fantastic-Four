@@ -58,7 +58,7 @@ This use case is closely related to the use case described in #1, but it is from
 
 The intent of the attacker is different than in #1, but the attack is the same.  In this scenario, the attacker is a disgruntled driver whose sole intent is sabotaging operations. Judas, the disgruntled delivery driver, publishes messages that say deliveries are cancelled when they are not cancelled. 
 
-**Prevention/Security Requirement**
+**Prevention**
 
 The prevention is the same as in #1: authentication.
 
@@ -66,13 +66,16 @@ The prevention is the same as in #1: authentication.
 
 The misuse case evolved is the same as in #1: perform a dictionary attack.
 
-**Prevention Evolved/Security Requirement**
+**Prevention Evolved**
 
 #1 described duel factor authentication as a mitigation technique.  Another technique that could be used that would mitigate a dictionary attack is for mosquitto to require strong passwords based off of well defined criteria. 
 
 **Diagram**
 
 [![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case2_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_2.png)
+
+**Security Requirement**
+Mosquitto should require strongo passwords to prevent dictionary attacks.
 
 **Relevant Advertised Security Features of Mosquitto**
 
@@ -215,3 +218,5 @@ The documentation makes clear that the majority of the security features are dis
 
 Due to the lack of default security configurations, the creators of Mosquitto are placing much of the security-related responsibility on the system administrator. It is also up to the system administrator to setup SSL/TLS if they hope to encrypt communications.
 
+
+GitHub internal project task assignments and collaborations: https://github.com/sanjar91/Fantastic-Four/projects/2
