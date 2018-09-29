@@ -135,13 +135,11 @@ The above described security requirements are addressed in [mosquitto-conf man p
 
 **Use Case**
 
-Jake, the System Admin, needs to authenticate the devices and users that are connecting to the broker, and block connection attempts that don't have valid credentials. In order to complete this, Jake first creates a password file that contains usernames and passwords for accessing the broker. Jake then uploads the credential file to a folder the broker can access and updates the config to enable user authentication.
+Jake, the System Admin, is responsible for the upkeep, configuration, and operation of the systems at Fleet Management company. The security of the systems is essential to protecting the information assets of the organization from exploits and to guarantee daily operations free of down time for the office manager and delivery staff out in the field. 
 
 **MisUse Case**
 
-Blaze, the hacker, needs to authenticate himself with the broker so that he can monitor published messages. One attack vector Blaze could use is to rename the credential file uploaded for the broker to access, and upload a fake credential file with the same naming conventions as the original file with usernames and passwords that Blaze wrote for the broker to use for authentication.
-
-Another attack vector Blaze could use is to change the file permissions of the credential file so that he can write to the file and add his own credentials to the file.
+Lazer, the hacker, is a System Administrator that was recently laid off from the parent company who owns Fleet Management and feels he has a score to settle. He looks for a smaller subsidiary with a significant reach in both billings and clients and that would cause the most disruption to the organization. Lazer creates a phishing campaign specifically to target Fleet Managements System Administrator. The campaign is for a fake a system update and when Jake, the unsuspecting system administrator, clicks the download option it places malware onto his computer. Once Lazer has Jake's login credentials, he plans to compromise the integrity of the Fleet Management systems and stop day-to-day operations. 
 
 **Diagram**
 
@@ -149,17 +147,11 @@ Another attack vector Blaze could use is to change the file permissions of the c
 
 **Security Requirement**
 
-When using usernames and passwords for authentication, permissions need to be set within the broker for what level users can change the requirements and configuration of credential files. Changes to active credential files need to be logged as well, and the file should be in a location on the machine hosting the broker that can only be accessed by the broker and system administrators.
+To mitigate a targeted phishing attack, a common strategy is duel factor authentication. This would be a multi identity design that would use RSA tag or a push id that acts as a secondary credential in addition to the username and password. 
 
 **Security Features of Mosquitto**
 
-Security features offered by Mosquitto that address these requirements are located in the [mosquitto.conf documentation](https://mosquitto.org/man/mosquitto-conf-5.html) under the Authentication Headline.
-User Authentication in Mosquitto is handled through traditional user credentials that can be defined either in credential files, or can be adapted through additional external modules and plugins. A few of the plugins [recommended by mosquitto](https://mosquitto.org/blog/2013/07/authentication-plugins/) include using authentication based on md5 hashes, and credential servers using postgresql and redis.
-
-Mosquitto also supports Access Control Lists to control client access to topics on the broker. The ACL is set to only provide access to topics listed, which would prevent additonal topics from being created.
-
-Mosquitto has two types of logging, System status logs and informational/debugging logs. System status logs are part of the MQTT protocol and are logged automatically to the $SYS topic that can be subscribed to on the broker. The informational/debugging logs 
-are more specific to Mosquitto and can be set to be published to a topic, to print to the console, or to write to a file. At this time, admin changes to ACLs or credential files are not logged to the System Status log, and it is unknown whether they are logged to the informational/debugging log destination.
+There are various methods available to authenticate the user, and more than one method can be required. This is described in the mosquitto.conf man page in the Authentication section.
 
 #### 5. Subscribing to System Topic $SYS
 
