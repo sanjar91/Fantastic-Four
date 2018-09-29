@@ -56,7 +56,7 @@ This use case is closely related to the use case described in #1, but it is from
 
 **Misuse Case**
 
-The intent of the attacker is different than in #1, but the attack is the same.  In this scenario, the attacker is a disgruntled driver, and for the sole purpose of sabotaging operations: Judas the disgruntled delivery driver publishes messages that say deliveries are canceled when they truly are not. 
+The intent of the attacker is different than in #1, but the attack is the same.  In this scenario, the attacker is a disgruntled driver whose sole intent is sabotaging operations. Judas, the disgruntled delivery driver, publishes messages that say deliveries are cancelled when they are not cancelled. 
 
 **Prevention**
 
