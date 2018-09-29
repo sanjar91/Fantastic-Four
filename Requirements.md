@@ -181,7 +181,7 @@ to the broker.
 
 **Diagram**
 
-[![data_flow_5](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_4_Dataflow_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/user_case_5-updated_dataflow_small.png)
+[![data_flow_5](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_4_Dataflow_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/user_case_5-updated_dataflow_original.png)
 
 **Prevention Evolved**
 
