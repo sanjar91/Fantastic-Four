@@ -27,7 +27,7 @@ It is important to note that the two main commands in Mosquitto is that you eith
 
 Blaze the Hacker wants to steal a delivery package.  One way he can do this is to cancel a legitimate order, and then create the same order but with a different address.
 
-**Prevention**
+**Prevention/Security Requirement**
 
 To prevent this misuse case, authentication should be present in mosquitto.  That is: only authenticated users should be able to create and cancel orders.
 
@@ -35,16 +35,13 @@ To prevent this misuse case, authentication should be present in mosquitto.  Tha
 
 Blaze the Hacker would need to get around the authentication, and one common attack again authenication is dictionary attacks.
 
-**Prevention Evolved**
+**Prevention Evolved/Security Requirement**
 
 To mitigate a dictionary attack, a common strategy is duel factor authentication. That is: confirming the user's identify by more than one method.  This way: an attacker would have to spoof both forms of authentication.
 
 **Diagram**
 
 [![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case1_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_1.png)
-
-**Security Requirement**
-Mosquitto should have a duel factor authentication feature in order to prevent dictionary attacks.
 
 **Relevant Advertised Security Features of Mosquitto**
 
