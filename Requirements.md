@@ -74,7 +74,7 @@ The misuse case evolved is the same as in #1: perform a dictionary attack.
 
 [![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case2_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_2.png)
 
-**Relevant Utility in Mosquitto**
+**Relevant Advertised Security Features of Mosquitto**
 
 There exists the utility [mosquitto_passwd](https://mosquitto.org/man/mosquitto_passwd-1.html) which assists with managing password files. One is able to create a user/password combination to be added into the password file, but no available options exist which require the password to be a strong password.  
 
@@ -101,7 +101,7 @@ The system should have a procedure in place which prevents errors when setting u
 
 [![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case3_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_3.png)
 
-**Relevant Security Features in Mosquitto**
+**Relevant Advertised Security Features of Mosquitto**
 
 In the [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the **Authentication** section, it explains the necessary configuration options for an access control list (ACL) file if it is to be used.  Unfortunately: policies must be typed directly into the ACL file.  This leaves room for errors.  Unlike the mosquitto_passwd utility, there is no existing utility that would provide a convenient interface to the user for them to modify the ACL file.  
 
@@ -124,7 +124,7 @@ LaZer, the hacker, is bored and has nothing better to do with his life so he dec
 
 Since the Order Log is a crucial entity in the fleet management system, the company must take all necessary actions to prevent or mitigate all possible attacks. In this case, LaZer is sending large amount of illegitimate requests that seem legitimate and pass the firewall. This attack can be prevented by adding a rule to the firewall settings which would limit the number of connection requests. And to prevent extensive amount of requests from a single connection, a firewall rule must be added to set a threshold to deny large amount of traffic coming from the same IP address within a short period of time.  
 
-**Security Features of Mosquitto**
+**Relevant Advertised Security Features of Mosquitto**
 
 The above described security requirements are addressed in [mosquitto-conf man page](https://mosquitto.org/man/mosquitto-conf-5.html), under the **General** section of the webpage. The following are two features listed in Mosquitto documentation that cover the firewall rule descried above.
 “*allow_anonymous*” Boolean determines whether clients without credentials are allowed to connect. By setting this Boolean value to false, we can stop the incoming traffic from unauthenticated clients and prevent a possible **DoS** attack. 
@@ -149,7 +149,7 @@ Lazer, the hacker, is a System Administrator that was recently laid off from the
 
 To mitigate a targeted phishing attack, a common strategy is duel factor authentication. This would be a multi identity design that could use RSA tag or a push that acts as a secondary credential in conjunction with the username and password. The inclusion of an Intrusion Prevention System would add further security and block malicious activity by recognizing bad patterns, such as Malware.  
 
-**Security Features of Mosquitto**
+**Relevant Advertised Security Features of Mosquitto**
 
 There are various methods available to authenticate the user, and more than one method can be required. This is described in the [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html) in the Authentication section.
 
