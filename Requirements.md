@@ -185,8 +185,11 @@ A combination of increased use of authorization, along with Logging of SIGHUP co
 
 [![data_flow_5](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_4_Dataflow_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/user_case_5-updated_dataflow_small.png)
 
-**Relevant Advertised Security Features of Mosquitto**  
+**Relevant Advertised Security Features of Mosquitto**
+  
+Mosquitto handles authorization primarily through Access Control Lists (ACLs) which you can limit by topic.
 
+From studying the documentation offered by Eclipse, it's unknown if SIGHUP commands have a similar ability to be limited through ACLs or any other form of authorization. It's also unknown if SIGHUP commands are logged in the $SYS topic or other logging locations (stdout or file output for example).
 
 
 ### Observation of Security-Related Configuration and Installation Issues
