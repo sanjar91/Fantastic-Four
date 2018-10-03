@@ -33,11 +33,11 @@ To prevent this misuse case, authentication should be present in mosquitto.  Tha
 
 **MisUse Case Evolved**
 
-Blaze the Hacker would need to get around the authentication, and one common attack again authenication is dictionary attacks.
+Blaze the Hacker would need to get around the authentication, and one common attack against authentication is dictionary attacks.
 
 **Prevention Evolved/Security Requirement**
 
-To mitigate a dictionary attack, a common strategy is duel factor authentication. That is: confirming the user's identify by more than one method.  This way: an attacker would have to spoof both forms of authentication.
+To mitigate a dictionary attack, a common strategy is duel factor authentication. That is: confirming the user's identity by more than one method.  This way: an attacker would have to spoof both forms of authentication.
 
 **Diagram**
 
