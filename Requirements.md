@@ -72,7 +72,7 @@ The misuse case evolved is the same as in #1: perform a dictionary attack.
 
 **Diagram**
 
-[![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case2_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case_2.png)
+[![data_flow_2](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case2_updated_small.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/use_case2_updated.png)
 
 
 **Relevant Advertised Security Features of Mosquitto**
