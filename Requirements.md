@@ -52,7 +52,7 @@ There are various methods available to authenticate the user, and more than one 
 
 **Use Case** 
 
-This use case is closely related to the use case described in #1, but it is from the perspective of the delivery driver.  Henry the honest delivery driver "subscribes" to the delivery orders that Bob the Office Admin "publishes."  In this way, Bob has the delivery information needed to make deliveries, and will also be informed when deliveries are canceled. 
+This use case is closely related to the use case described in #1, but it is from the perspective of the delivery driver.  Henry the honest delivery driver "subscribes" to the delivery orders that Bob the Office Admin "publishes."  In this way, Henry has the delivery information needed to make deliveries, and will also be informed when deliveries are canceled. 
 
 **Misuse Case**
 
@@ -68,7 +68,7 @@ The misuse case evolved is the same as in #1: perform a dictionary attack.
 
 **Prevention Evolved/Security Requirement**
 
-#1 described duel factor authentication as a mitigation technique.  Another technique that could be used that would mitigate a dictionary attack is for mosquitto to require strong passwords based off of well defined criteria. 
+#1 described dual factor authentication as a mitigation technique.  Another technique that could be used that would mitigate a dictionary attack is for mosquitto to require strong passwords based off of well defined criteria. 
 
 **Diagram**
 
