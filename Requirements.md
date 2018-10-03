@@ -37,7 +37,7 @@ Blaze the Hacker would need to get around the authentication, and one common att
 
 **Prevention Evolved/Security Requirement**
 
-To mitigate a dictionary attack, a common strategy is duel factor authentication. That is: confirming the user's identity by more than one method.  This way: an attacker would have to spoof both forms of authentication.
+To mitigate a dictionary attack, a common strategy is dual factor authentication. That is: confirming the user's identity by more than one method.  This way: an attacker would have to spoof both forms of authentication.
 
 **Diagram**
 
