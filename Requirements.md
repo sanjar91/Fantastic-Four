@@ -144,7 +144,7 @@ Lazer, the hacker, is a System Administrator that was recently laid off from the
 
 **Diagram**
 
-[![data_flow_4](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_4_Dataflow_e.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_4_Dataflow_e.png)
+[![data_flow_4](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_2_Dataflow_new.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Use_Case_2_Dataflow_new.png)
 
 **Security Requirement**
 
