@@ -13,6 +13,7 @@ Evidence for C4 would be a report that multiple tests were conducted for the tas
 
 ### Assurance Case 2
 ### Assurance Case 3
+[![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case%203.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case%203.png)
 ### Assurance Case 4
 
 [![data_flow_4](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case%20_4_new1.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case%20_4_new1.png)
