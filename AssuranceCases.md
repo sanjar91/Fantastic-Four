@@ -19,7 +19,7 @@ Evidence for C4 would be a report that multiple tests were conducted for the tas
 
 Evidence:
 
-Evidence for C3 would include code on lines 155-159 of the handle._.c file and the topics lengths code on lines 134-145. The topics length has the ability to restrict messages/files to a predetermined length and does not allow topics to exceed these requirements. The code evidence cited, collectively, provides security against buffer overflow. Lastly, evidence for C4 would require an additional capability by Misquitto, in a future-state, to limit the data types allowed on the broker, which would offer an added layer of security against malware attacks. 
+Evidence for C3 would include code on lines 155-159 of the handle._.c file and the topics lengths code on lines 134-145. The topics length has the ability to restrict messages/files to a predetermined length and does not allow topics to exceed these requirements. The code evidence cited, collectively, provides security against buffer overflow attacks. Lastly, evidence for C4 would require an additional capability by Misquitto, in a future-state, to limit the data types allowed on the broker and offer an added layer of security against malware attacks. 
 
 ### Assurance Case 5
 
