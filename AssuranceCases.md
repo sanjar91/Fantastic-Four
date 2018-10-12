@@ -31,6 +31,11 @@ As specified in the [mosquitto.sub docs](https://mosquitto.org/man/mosquitto_sub
 The undermining rebuttal postulates that the logs may not properly be logging the above mentioned critical information as expected.  A simple report can be provided with the results of automated tests which prove that, given various inputs, the log outputs produce what is expected.   
 
 ### Assurance Case 2
+
+The second assurance case was going to surround the requirement that only the delivery driver can mark deliveries as completed.  However, we quickly noticed that assurance case #1 and assurance case #5 already provides assurance surrounding this requirement.  In other words, the diagram would duplicate claims and rebuttals already covered elsewhere.  We are confident that as long as assurance case #1 and assurance case #5 are satisifed, then we can assume that the delivery driver’s action of completing orders will maintain integrity as well. 
+
+We brainstormed ofter possible assurance cases but were unable to think of others.  This is mostly due to the fact that mosquitto is limited in it's functionality.  Our existing assurance cases already cover a lot of ground, including: dictionary attacks, DoS attacks, malware, authenication and authorization configurations.
+
 ### Assurance Case 3
 [![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case%203.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case%203.png)
 ### Assurance Case 4
