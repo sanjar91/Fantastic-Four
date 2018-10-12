@@ -15,6 +15,8 @@ This application would benefit from strong passwords being required whenever aut
 
 If a strong password feature was included in the future, then additional evidence, due to the undermining rebuttal on C4, would be to provide a report on the results of attempts to create weak passwords.  For each strong password rule that the regular expression enforces (e.g. one upper case letter, one lower case letter, one number, etc), there would be an attempted password creation that violates that rule.   All tests should result in Mosquitto responding that the provided password is invalid.  These tests would confirm that the regular expression is enforcing all password requirements as intended.
 
+There are many [dictionary attack tools and techniques](https://wiki.skullsecurity.org/Passwords) that make password recovery possible.  Strong passwords via C4 make dictionary attacks much less successful.  However, additional security can make dictionary attacks even less successful by throttling the amount of password attempts.  Since dictionary attacks require an extremely high amount of guesses, most dictionary attacks are automated in order to make the most password guesses in the least amount of time.  Thus, dictionary attacks would appear very similar to a DoS attack to an intrusion detection system.  Assurance Case #3 details the required evidence to provide assurance that DoS attacks are handled, and this assurance will also apply to dictionary attacks.
+
 ### Assurance Case 2
 ### Assurance Case 3
 [![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case%203.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case%203.png)
