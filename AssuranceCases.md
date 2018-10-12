@@ -32,9 +32,9 @@ The undermining rebuttal postulates that the logs may not properly be logging th
 
 ### Assurance Case 2
 
-The second assurance case was going to surround the requirement that only the delivery driver can mark deliveries as completed.  However, we quickly noticed that assurance case #1 and assurance case #5 already provides assurance surrounding this requirement.  In other words, the diagram would duplicate claims and rebuttals already covered elsewhere.  We are confident that as long as assurance case #1 and assurance case #5 are satisifed, then we can assume that the delivery driver’s action of completing orders will maintain integrity as well. 
+The second assurance case was going to surround the requirement that only the delivery driver can mark deliveries as completed.  However, we quickly noticed that assurance case #1 and assurance case #5 already provide assurance surrounding this requirement.  In other words, the diagram would duplicate claims and rebuttals already covered elsewhere.  We are confident that as long as assurance case #1 and assurance case #5 are satisifed, then we can assume that only the delivery driver can complete his own orders, and the complete action will maintain integrity. 
 
-We brainstormed ofter possible assurance cases but were unable to think of others.  This is mostly due to the fact that mosquitto is limited in it's functionality.  Our existing assurance cases already cover a lot of ground, including: dictionary attacks, DoS attacks, malware, authenication and authorization configurations.
+We brainstormed for other possible assurance cases, but we were unable to think of others that would not become very similar to alredy existing assurance cases.  This is mostly due to the fact that mosquitto is limited in it's functionality.  Our existing assurance cases already cover a lot of ground, including: dictionary attacks, DoS attacks, man in the middle attacks, malware, as well as authenication and authorization configurations.
 
 ### Assurance Case 3
 [![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case%203.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case%203.png)
