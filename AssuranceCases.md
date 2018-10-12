@@ -26,7 +26,7 @@ The critical information that the broker log file can provide is a Unix timestam
 
 [![log join file](https://github.com/sanjar91/Fantastic-Four/blob/master/images/logfile_join.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/logfile_join.png)
 
-As specified in the (mosquitto.sub)[https://mosquitto.org/man/mosquitto_sub-1.html] docs, to include the Unix timestamp on the subscribe command, the `-F` flag should be set to specify a custom output, and `%U` specifies the Unix timestamp. 
+As specified in the [mosquitto.sub docs](https://mosquitto.org/man/mosquitto_sub-1.html), to include the Unix timestamp on the subscribe command, the `-F` flag should be set to specify a custom output, and `%U` specifies the Unix timestamp. 
 
 The undermining rebuttal postulates that the logs may not properly be logging the above mentioned critical information as expected.  A simple report can be provided with the results of automated tests which prove that, given various inputs, the log outputs produce what is expected.   
 
