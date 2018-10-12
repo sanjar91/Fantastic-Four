@@ -9,11 +9,11 @@
 
 **Evidence:** 
 
-The first evidence for C4 would be that there would be mention somewhere in the [mosquitto-conf documention](https://mosquitto.org/man/mosquitto-conf-5.html) that strong passwords are either implicitly required, or there is a setting for the mosquitto-conf file that makes strong passwords a requirement.  Unfortunately, this does not exist in mosquitto, so continuing forward with undermining that evidence is unnecessary.  
+The first evidence for C4 would be that there would be mention somewhere in the [mosquitto-conf documention](https://mosquitto.org/man/mosquitto-conf-5.html) that strong passwords are either implicitly required, or there is an available setting for the mosquitto-conf file that makes strong passwords a requirement.  Unfortunately, this feature does not exist in mosquitto.  
 
-One way that this feature could be implemented in mosquitto in the future is to include a [check via a regular expression on the password's strength](https://stackoverflow.com/questions/42965082/using-regex-in-c-program-to-check-password-strength).  
+This application would benefit from strong passwords being required whenever authentication is used.  One way this feature could be implemented in the future is to include a [check on the password's strength via a regular expression](https://stackoverflow.com/questions/42965082/using-regex-in-c-program-to-check-password-strength).  
 
-If a strong password feature was ever included, then additional evidence, due to the undermining rebuttal on C4, would be to provide a report on the results of attempts to create weak passwords.  For each strong password rule that the regular expression enforces (e.g. one upper case letter, one lower case letter, one number, etc), there would be an attempted password creation that violates that rule.  All tests should result in Mosquitto responding that the provided password is invalid.
+If a strong password feature was included in the future, then additional evidence, due to the undermining rebuttal on C4, would be to provide a report on the results of attempts to create weak passwords.  For each strong password rule that the regular expression enforces (e.g. one upper case letter, one lower case letter, one number, etc), there would be an attempted password creation that violates that rule.   All tests should result in Mosquitto responding that the provided password is invalid.  These tests would confirm that the regular expression is enforcing all password requirements as intended.
 
 ### Assurance Case 2
 ### Assurance Case 3
