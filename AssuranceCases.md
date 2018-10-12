@@ -9,7 +9,11 @@
 
 **Evidence:** 
 
-Evidence for C4 would be a report that multiple tests were conducted for the task of creating passwords, and the system would not allow any of the weak passwords to persist.  Evidence for C5 would be a report that tests were conducted which perform a dictionary attack against the, system, and the report should show that that the authentication attempts were throttled. Lastly, evidence for C6 would be a report of tests which prove that every time an order is published, logs are created which track the user that published that order. 
+The first evidence for C4 would be that there would be mention somewhere in the [mosquitto-conf documention](https://mosquitto.org/man/mosquitto-conf-5.html) that strong passwords are either implicitly required, or there is a setting for the mosquitto-conf file that makes strong passwords a requirement.  Unfortunately, this does not exist in mosquitto, so continuing forward with undermining that evidence is unnecessary.  
+
+One way that this feature could be implemented in mosquitto in the future is to include a [check via a regular expression on the password's strength](https://stackoverflow.com/questions/42965082/using-regex-in-c-program-to-check-password-strength).  
+
+If a strong password feature was ever included, then additional evidence, due to the undermining rebuttal on C4, would be to provide a report on the results of attempts to create weak passwords.  For each strong password rule that the regular expression enforces (e.g. one upper case letter, one lower case letter, one number, etc), there would be an attempted password creation that violates that rule.  All tests should result in Mosquitto responding that the provided password is invalid.
 
 ### Assurance Case 2
 ### Assurance Case 3
