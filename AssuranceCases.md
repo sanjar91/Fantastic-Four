@@ -22,11 +22,13 @@ Claim #6 is a difficult situation since it assumes the attacker is an insider wh
 2. `log_dest <path_to_log_file>` (specify the file that the broker logs are saved to.  Default is that logs are not saved but instead sent to stdout.)
 3. `log_type all` (provides metadata about all subscribe/publish requests.  Most notably: the user's name, and the unix timestamp)
 
-The critical information that the broker log file can provide is a Unix timestamp which serves as an identifier for each publish/subscribe event, as well as the user who initiated that event.  Unfortunately, the broker log file only contains metadata about the actual payload, such as the byte syze of the payload, and does not provide any options to log the message itself.  In order to further tie the user to the malicious message, an additional *subscription* log file should be maintained for each topic. It is worth noting that the subscription log file does not possess any options to display the user who sent the publish command.  This is where the unix timestamp comes into play, because the broker log file and subscription log file can be joined because they are both able to log the unix timestamp:
+The critical information that the broker log file can provide is a Unix timestamp which serves as an identifier for each publish/subscribe event, as well as the user who initiated that event.  Unfortunately, the broker log file only contains metadata about the actual payload, such as the byte size of the payload, and does not provide any options to log the message itself.  In order to further tie the user to the malicious message, an additional *subscription* log file should be maintained for each topic. It is worth noting that the subscription log file does not possess any options to display the user who sent the publish command.  This is where the Unix timestamp comes into play because the broker log file and subscription log file can be joined since they are both able to log the Unix timestamp:
 
 [![log join file](https://github.com/sanjar91/Fantastic-Four/blob/master/images/logfile_join.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/logfile_join.png)
 
 As specified in the (mosquitto.sub)[https://mosquitto.org/man/mosquitto_sub-1.html] docs, to include the unix timestamp on the subscribe command, the `-F` flag should be set to specify a custom output, and `%U` specifies the Unix timestamp. 
+
+The undermining rebuttal postulates that the logs may not properly be logging the above mentioned critical information as expected.  A simple report can be provided with the results of automated tests which prove that, given various inputs, the log outputs produce what is expected.   
 
 ### Assurance Case 2
 ### Assurance Case 3
