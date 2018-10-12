@@ -17,7 +17,7 @@ If a strong password feature was included in the future, then an undermining reb
 
 There are many [dictionary attack tools and techniques](https://wiki.skullsecurity.org/Passwords) that often make password recovery possible.  Strong passwords via C4 make dictionary attacks much less successful.  However, additional security can make dictionary attacks even less successful by throttling the amount of password attempts.  Since dictionary attacks require an extremely high amount of guesses, most dictionary attacks are automated in order to make the most password guesses in the least amount of time.  Thus, dictionary attacks would appear very similar to a DoS attack to an intrusion detection system.  Assurance Case #3 details the required evidence to provide assurance that DoS attacks are handled, and this assurance will also apply to dictionary attacks.
 
-Claim #6 is a difficult situation since it assumes the attacker is an insider who already possesses the necessary credentials to alter orders.  Detection via log files is the best tool available in these situations so that if any malicious activity is suspected, there is an available papertrail for investigation.  The [mosquitto.conf file] has three relevant settings: 
+Claim #6 is a difficult situation since it assumes the attacker is an insider who already possesses the necessary credentials to alter orders.  Detection via log files is the best tool available in these situations so that if any malicious activity is suspected, there is an available papertrail for investigation.  The mosquitto.conf file has three relevant settings: 
 1. `allow_anonymous false` (set to false to make it so that authentication is mandatory. This way, all publish/subscribe commands are linked to a user.)
 2. `log_dest <path_to_log_file>` (specify the file that the broker logs are saved to.  Default is that logs are not saved but instead sent to stdout.)
 3. `log_type all` (provides metadata about all subscribe/publish requests.  Most notably: the user's name, and the unix timestamp)
@@ -31,6 +31,11 @@ As specified in the [mosquitto.sub docs](https://mosquitto.org/man/mosquitto_sub
 The undermining rebuttal postulates that the logs may not properly be logging the above mentioned critical information as expected.  A simple report can be provided with the results of automated tests which prove that, given various inputs, the log outputs produce what is expected.   
 
 ### Assurance Case 2
+
+The second assurance case was going to surround the requirement that only the delivery driver can mark deliveries as completed.  However, we quickly noticed that assurance case #1 and assurance case #5 already provide assurance surrounding this requirement.  In other words, the diagram would duplicate claims and rebuttals already covered elsewhere.  We are confident that as long as assurance case #1 and assurance case #5 are satisifed, then we can assume that only the delivery driver can complete his own orders, and the complete action will maintain integrity. 
+
+We brainstormed for other possible assurance cases, but we were unable to think of others that would not become very similar to alredy existing assurance cases.  This is mostly due to the fact that mosquitto is limited in it's functionality.  Our existing assurance cases already cover a lot of ground, including: dictionary attacks, DoS attacks, man in the middle attacks, malware, as well as authenication and authorization configurations.
+
 ### Assurance Case 3
 [![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case%203.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case%203.png)
 ### Assurance Case 4
