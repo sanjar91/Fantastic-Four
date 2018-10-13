@@ -9,7 +9,7 @@
 
 **Evidence:** 
 
-The first evidence for C4 would be that there would be mention somewhere in the [mosquitto-conf documention](https://mosquitto.org/man/mosquitto-conf-5.html) that strong passwords are either implicitly required, or there is an available setting for the mosquitto-conf file that makes strong passwords a requirement.  Unfortunately, this feature does not exist in mosquitto.  
+The first evidence for C4 would be that there is mention somewhere in the [mosquitto-conf documention](https://mosquitto.org/man/mosquitto-conf-5.html) that strong passwords are either implicitly required, or there is an available setting for the mosquitto-conf file that makes strong passwords a requirement.  Unfortunately, this feature does not exist in mosquitto.  
 
 This application would benefit from strong passwords being required whenever authentication is used.  One way this feature could be implemented in the future is to include a [check on the password's strength via a regular expression](https://stackoverflow.com/questions/42965082/using-regex-in-c-program-to-check-password-strength).  
 
