@@ -38,6 +38,15 @@ We brainstormed for other possible assurance cases, but we were unable to think 
 
 ### Assurance Case 3
 [![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case3%20final%20final%20update.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case3%20final%20final%20update.png)
+
+**Evidence:**
+
+Evidence **E1** and **E4** are addressed in [mosquitto-conf man page](https://mosquitto.org/man/mosquitto-conf-5.html), under the **General Options** section of the webpage. *“`allow_anonymous`”* Boolean determines whether clients without credentials are allowed to connect. By setting this Boolean value to `False`, we can stop the incoming traffic from unauthenticated clients and prevent a possible **DoS** attack.
+
+Evidence **E2** is addressed in this [link](https://www.cox.com/business/security/ddos-mitigation.html). Internet Service Providers (ISP) prevent Distributed Denial of Service (DDoS) attacks by proactively monitoring networks. Cox communication, one of the widely used **ISP**, describe their mitigation plan for **DDoS** attacks on their customer networks. Cox proactively monitors networks 24 hours a day, 7 days a week, and 365 days a year by scanning network resources, assessing threats, and managing a log of network activities so they can quickly mitigate **DDoS** threats.
+
+Evidence **E3** and **E5** are addressed in [mosquitto-conf man page](https://mosquitto.org/man/mosquitto-conf-5.html). If set to `False`, the *“`allow_duplicate_messgae`”* Boolean limits the number of duplicate messages to one. This option is useful when clients are subscribed to multiple subscriptions that overlap. In addition, this feature prevents **DoS** attacks by denying multiple illegitimate messages coming from one client.
+
 ### Assurance Case 4
 
 [![data_flow_4](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new2.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new2.png)
