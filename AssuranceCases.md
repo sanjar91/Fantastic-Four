@@ -49,7 +49,7 @@ Evidence **E3** and **E5** are addressed in [mosquitto-conf man page](https://mo
 
 ### Assurance Case 4
 
-[![data_flow_4](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new3.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new3.png)
+[![data_flow_4](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new2.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new2.png)
 
 **Evidence:** 
 
@@ -57,19 +57,19 @@ Evidence for C3 (E1) would include code found on lines 155-159 of the [handle_pu
 
 ### Assurance Case 5
 
-[![data_flow_5](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_5_update-20181012.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_5_update-20181012.png)
+[![data_flow_5](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case-5.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case-5.png)
 
 **Evidence:**
 
 Evidence for C4 (E1) and C6 (E2) would include the logs that are generated depending on the log\_type (specified in mosquitto.conf on the [mosquitto.conf documentation under log_type](https://mosquitto.org/man/mosquitto-conf-5.html)). When the log\_type is set for either info or all, any reloading of the config files are logged to the logging destination (whether that is a file, the $SYS topic, or to the stdout stream). The evidence for this setup can be found on line 574 of [loop.c](https://github.com/eclipse/mosquitto/blob/master/src/loop.c) where an external boolean, flag_reload, is examined, and if found true, reloads the config and logs the change using the log\_\_printf function defined on line 254 of [logging.c](https://github.com/eclipse/mosquitto/blob/master/src/logging.c).
 
-In order for access control lists or password files to be added, edited, or removed, the mosquitto.conf config file needs to be reloaded, so as long as the log\_type is set to all or info, any changes taking effect with the files (from the broker's perspective) would be logged when the config file is restarted.
+In order for access control lists or password files to be added, edited, or removed, the mosquitto.conf config file needs to be reloaded, so as long as the log\_type is set to all or info, any changes taking effect with the files (from the broker's perspective) would be logged when the config file is restarted. This can be found in the [mosquitto.conf documentation](https://mosquitto.org/man/mosquitto-conf-5.html) under Authentication.
 
 Evidence for Claim 5 (E2) is less hard evidence through the project, and more well known in the tech community. SSL/TLS encryption of the connections that are used for publishing and subscribing make it almost impossible to alter the payloads of packets that are sent without having the public and private key of that connection available. A formal analysis of packets sent using TLS connections to a test mosquitto broker will be done in the future to prove this claim. 
 
 The Evidence for Claim 7 (E4) wasn't listed in the mosquitto documentation, but was found through code analysis and formal testing of the mosquitto broker's logging functions. When all logs are stored only through the $SYS topic of the broker, it is possible for outside users to publish messages and files to this topic. This is configured in the mosquitto.conf config as "log_dest topic", and you can find an example of this in the [example mosquitto config](https://github.com/eclipse/mosquitto/blob/master/mosquitto.conf) on line 497.
 
-When the logging destination is set for a file, the stdout, or stderr though, published messages to the $SYS topic are not included, and the file is removed from the reach of any broker-users from deleting records or messages. This can be found through [logging.c](https://github.com/eclipse/mosquitto/blob/master/src/logging.c), in that there are no references to the publisher or subscriber handlers that accept the messages for the $SYS topic. This means it's impossible for a message that is published to be injected to a physical mosquitto log. This was also tested by our group and verified to be true.
+If the logging destination is set for a file, the stdout, or stderr rather than just the $SYS topic, published messages to the $SYS topic are not included, and the file is removed from the reach of any broker-users from deleting records or messages. This can be found through [logging.c](https://github.com/eclipse/mosquitto/blob/master/src/logging.c), in that there are no references to the publisher or subscriber handlers that accept the messages for the $SYS topic. This means it's impossible for a message that is published to be injected to a physical mosquitto log. This was also tested by our group and verified to be true.
 
 
 
