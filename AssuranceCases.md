@@ -53,7 +53,7 @@ Evidence **E3** and **E5** are addressed in [mosquitto-conf man page](https://mo
 
 **Evidence:** 
 
-Evidence for (C3) would include code found on lines 155-159 of the [handle_publish.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_publish.c) file, and code regarding topic length found on lines 134-145 of the same file. The Mosquitto configuration restricts messages/files to a predetermined length and prohibits files from exceeding these requirements. The combined code evidence cited above, collectively, protects the broker against buffer overflow attacks. Lastly, evidence for (C4) would require an additional capability by Mosquitto, in a future-state, that would limit the data file types allowed by the broker thereby offering an added layer of security against malware attacks. 
+Evidence for C3 (E1) would include code found on lines 155-159 of the [handle_publish.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_publish.c) file, and evidence for C3 (E2) code regarding topic length found on lines 134-145 of the same file. The Mosquitto configuration restricts messages/files to a predetermined length and prohibits files from exceeding these requirements. The combined code evidence cited above, collectively, protects the broker against buffer overflow attacks. Lastly, evidence for (C4) would require an additional capability by Mosquitto, in a future-state, that would limit the data file types allowed by the broker thereby offering an added layer of security against malware attacks. 
 
 ### Assurance Case 5
 
