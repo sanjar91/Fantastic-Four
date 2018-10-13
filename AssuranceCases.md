@@ -37,7 +37,7 @@ The second assurance case was going to surround the requirement that only the de
 We brainstormed for other possible assurance cases, but we were unable to think of others that would not become very similar to alredy existing assurance cases.  This is mostly due to the fact that mosquitto is limited in it's functionality.  Our existing assurance cases already cover a lot of ground, including: dictionary attacks, DoS attacks, man in the middle attacks, malware, as well as authenication and authorization configurations.
 
 ### Assurance Case 3
-[![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Updated%20Assurance%20Case-3.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Updated%20Assurance%20Case-3.png)
+[![data_flow_3](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case3%20updated.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance%20Case3%20updated.png)
 ### Assurance Case 4
 
 [![data_flow_4](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new2.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new2.png)
