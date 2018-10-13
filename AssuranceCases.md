@@ -71,7 +71,7 @@ The Evidence for Claim 7 (E4) wasn't listed in the mosquitto documentation, but 
 
 If the logging destination is set for a file, the stdout, or stderr rather than just the $SYS topic, published messages to the $SYS topic are not included, and the file is removed from the reach of any broker-users from deleting records or messages. This can be found through [logging.c](https://github.com/eclipse/mosquitto/blob/master/src/logging.c), in that there are no references to the publisher or subscriber handlers that accept the messages for the $SYS topic. This means it's impossible for a message that is published to be injected to a physical mosquitto log. This was also tested by our group and verified to be true.
 
-GitHub internal project task assignments and collaborations: [Kanban Board](https://github.com/sanjar91/Fantastic-Four/projects/3)
+GitHub internal project task assignments and collaborations: [Assurance Cases Software Security Engineering Kanban Board](https://github.com/sanjar91/Fantastic-Four/projects/3)
 
 
 
