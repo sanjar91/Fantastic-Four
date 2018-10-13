@@ -49,7 +49,7 @@ Evidence **E3** and **E5** are addressed in [mosquitto-conf man page](https://mo
 
 ### Assurance Case 4
 
-[![data_flow_4](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new2.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new2.png)
+[![data_flow_4](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new3.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/Assurance_Case_4_new3.png)
 
 **Evidence:** 
 
