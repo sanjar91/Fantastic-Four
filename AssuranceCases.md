@@ -5,7 +5,7 @@
 
 ### Assurance Case 1
 
-[![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/assurance_case1.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/assurance_case1.png) 
+[![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/assurance_case1_fix.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/assurance_case1_fix.png) 
 
 **Evidence:** 
 
