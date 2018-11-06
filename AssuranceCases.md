@@ -5,7 +5,7 @@
 
 ### Assurance Case 1
 
-[![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/assurance_case1.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/assurance_case1.png) 
+[![data_flow_1](https://github.com/sanjar91/Fantastic-Four/blob/master/images/assurance_case1_fix.png)](https://github.com/sanjar91/Fantastic-Four/blob/master/images/assurance_case1_fix.png) 
 
 **Evidence:** 
 
@@ -70,6 +70,8 @@ Evidence for Claim 5 (E2) is less hard evidence through the project, and more we
 The Evidence for Claim 7 (E4) wasn't listed in the mosquitto documentation, but was found through code analysis and formal testing of the mosquitto broker's logging functions. When all logs are stored only through the $SYS topic of the broker, it is possible for outside users to publish messages and files to this topic. This is configured in the mosquitto.conf config as "log_dest topic", and you can find an example of this in the [example mosquitto config](https://github.com/eclipse/mosquitto/blob/master/mosquitto.conf) on line 497.
 
 If the logging destination is set for a file, the stdout, or stderr rather than just the $SYS topic, published messages to the $SYS topic are not included, and the file is removed from the reach of any broker-users from deleting records or messages. This can be found through [logging.c](https://github.com/eclipse/mosquitto/blob/master/src/logging.c), in that there are no references to the publisher or subscriber handlers that accept the messages for the $SYS topic. This means it's impossible for a message that is published to be injected to a physical mosquitto log. This was also tested by our group and verified to be true.
+
+GitHub internal project task assignments and collaborations: [Assurance Cases Kanban Board](https://github.com/sanjar91/Fantastic-Four/projects/3)
 
 
 
