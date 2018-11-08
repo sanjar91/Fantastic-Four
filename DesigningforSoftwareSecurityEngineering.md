@@ -9,7 +9,7 @@ Mosquitto does utilize username/password authentication.  If username/password i
 
 The password utility must be performed on the same machine as the mosquitto broker.  It does not allow remote access since it is not exposed to the open internet.  This is a good security mechanism which prevents a significant amount of potential attack vectors.
 
-Mosquitto has a strict format for the password file.  Each line must only have 1024 bytes. This strict format is important because it prevents buffer overflows within the code.  Any line in the password file or in the command that is longer than 1024 characters will be cut off.  This length is specified in the `MAX_BUFFER_LEN` preprocessor in the moquitto_passwd.c filem and it is referenced repeatedly through the file, including in the `delete_pwuser` function, `update_pwuser` function, and the `get_password` file.   
+Mosquitto has a strict format for the password file.  Each line must only have 1024 bytes. This strict format is important because it prevents buffer overflows within the code.  Any line in the password file or in the command that is longer than 1024 characters will be cut off.  This length is specified in the `MAX_BUFFER_LEN` preprocessor in the "moquitto_passwd.c" file and it is referenced repeatedly through the file, including in the `delete_pwuser` function, `update_pwuser` function, and the `get_password` file.   
 
 Mosquitto does provide the “allow_anonymous”  configuration flag to enforce a “closed system.” 
 
