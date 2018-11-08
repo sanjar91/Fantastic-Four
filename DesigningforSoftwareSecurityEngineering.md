@@ -21,6 +21,7 @@ Mosquitto also supports dual factor authentication.  In addition to username/pas
 We saw evidence throughout the project that input validation is repeatedly enforced in order to prevent the possability of buffer overflows.   Methods associated with buffer overflows because they do no bounds checking, `gets()`, `scanf()` and `strcpy()`, are not referenced anywhere in the repository.  The method `strcat()` which does no bounds checking is referenced twice in the "service.c" file, but it is safe because the string in question it is appending is a predetermined string literal.  The code makes good use methods that, instead, do require a string argument.  Such as: `calloc()`, `memcpy()`, `strncpy()` are used repeatedly. 
 
 ## Repudiation:
+Mosquitto enforces the MQTT feature of "Quality of Service".  Quality of Service refers to how hard Mosquitto will work to deliver the message to subscribers.  For purposes of mitigating repudiation, level 1 and level 2 would be considered the best strategies.  Level one will continue sending the message until a confirmation is receieved, and Level 2 sends the message exactly once, but a four step handshake establishes a connectiona nd acknwledges that the data was received. 
 
 ## Information Disclosure:
 Information disclosure attacks are mitigated with built-in support for network level encryption via SSL/TLS support. This configuration is disabled by default and must be setup by the system admin. 
