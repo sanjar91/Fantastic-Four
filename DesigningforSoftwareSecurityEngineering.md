@@ -13,7 +13,7 @@ Mosquitto has a strict format for the password file.  Each line must only have 1
 
 Mosquitto does provide the “allow_anonymous”  configuration flag to enforce a “closed system.” 
 
-One of our findings was that mosquitto does not require strong passwords.  This leaves open the possability for a brute force attack.  
+One of our findings was that mosquitto does not require strong passwords.  This leaves open the possibility for a brute force attack.  
 
 Mosquitto also supports dual factor authentication.  In addition to username/password authentication, the system admin can also setup pre-shared-key based encryption.  
 
@@ -27,6 +27,11 @@ Mosquitto enforces the MQTT feature of "Quality of Service".  Quality of Service
 Information disclosure attacks are mitigated with built-in support for network level encryption via SSL/TLS support. This configuration is disabled by default and must be setup by the system admin. 
 
 ## Denial of Service
+In the Denial of Service category, Mosquitto especially shines due to it's lightweight architecture, size of messaging and requests, and zealous handling of memory management and input validation while prosseses iterate. An example of this can be found in [handle_publish.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_publish.c), every possible outcome through the handle\_\_publish function eventually hits the mosquitto_free call with the char pointer topic (which is defined in [memory_mosq.c](https://github.com/eclipse/mosquitto/blob/master/lib/memory_mosq.c)). Everytime the mosquitto\_\_free function is called, it tracks how many available memory blocks are used throughout the project in the memcount variable (also defined in [memory_mosq.c](https://github.com/eclipse/mosquitto/blob/master/lib/memory_mosq.c)), and in the other function, mosquitto\_\_malloc. That way, if the memcount variable is greater than the maximum amount allowed by mosquitto, the mosquitto\_\_malloc function returns null, which would then set off memory limit errors within [mosquitto.c](https://github.com/eclipse/mosquitto/blob/master/src/mosquitto.c), [loop.c](https://github.com/eclipse/mosquitto/blob/master/src/loop.c), and [handle_publish.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_publish.c), closing the broker down.
+
+Despite this, a massive Denial of Service attack could still be attempted against a Mosquitto broker, which is why configuration options such as the ability to limit repeated messages from the same user ([mosquitto conf manpage](https://mosquitto.org/man/mosquitto-conf-5.html), see allow_duplicate_messages option) and setting a QoS of 2 to ensure that a message being sent to the broker is received exactly once ([MQTT protocol Qos Features](https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels)) can be enabled (note, the QoS levels aren't specific to Mosquitto, they are defined in the MQTT standards).
+
+Combining these features with a separation of specific users for processes that cross boundaries of trusts would ensure that data stores referenced by mosquitto processes aren't being blocked by external authorities. This currently is not supported in mosquitto, in that all processes for mosquitto are handled by the same user (defined in [mosquitto.conf](https://mosquitto.org/man/mosquitto-conf-5.html) man page in "user" config option).
 
 ## Elevation of Privilege
 Mosquitto protects against elevation of privilege attacks by implementing an access control list.  The major access control list functions are located in the "security.c" file.  The access control list is turned off by default.  The access control list has the ability to restruct who has subscribe/publish privileges per topic.
