@@ -18,7 +18,7 @@ One of our findings was that mosquitto does not require strong passwords.  This 
 Mosquitto also supports dual factor authentication.  In addition to username/password authentication, the system admin can also setup pre-shared-key based encryption.  
 
 ## Tampering:
-We saw evidence throughout the project that input validation is repeatedly enforced in order to prevent the possability of buffer overflows.   Methods often associated with buffer overflows, gets(), scanf() and strcpy(), are not referenced anywhere in the repository, and methods that require a length argument passed in, such as calloc, memcpy, strncpy are used repeatedly. 
+We saw evidence throughout the project that input validation is repeatedly enforced in order to prevent the possability of buffer overflows.   Methods often associated with buffer overflows, `gets()`, `scanf()` and `strcpy()`, are not referenced anywhere in the repository, and methods that require a length argument passed in, such as `calloc()`, `memcpy()`, `strncpy()` are used repeatedly. 
 
 ## Repudiation:
 
