@@ -69,7 +69,7 @@ Our code review strategy involved the following activities:
 
 * Total issues: 493
 
-### Common Weakness Enumeration Identified: 
+#### Common Weakness Enumeration Identified: 
 
 CWE 20 (Improper input validation): 3 
 - The product does not validate or incorrectly validates input that can affect the control flow or data flow of a program
