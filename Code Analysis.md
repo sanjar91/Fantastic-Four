@@ -98,7 +98,12 @@ CWE 327 (Use of a Broken or Risky Cryptographic Algorithm): 5
 - (random) srand: This function is not sufficiently random for security-related functions such as key and nonce creation. Use a more secure technique for acquiring random values.
   - lib/mosquitto.c: line 53
 
-
+Issues by Risk Level
+  - [1] 261 
+  - [2] 175 
+  - [3]  12 
+  - [4]  45 
+  - [5]   0
 
 
 ### Manual Code Review
