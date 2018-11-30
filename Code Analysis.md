@@ -33,6 +33,7 @@ Our code review strategy involved the following activities:
 ### Flawfinder
 
 **Overview**
+- Flawfinder Report: https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt 
 
 **Filtering Process**
 
