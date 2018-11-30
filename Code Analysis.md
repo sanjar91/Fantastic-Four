@@ -92,9 +92,9 @@ CWE 190 (Integer Overflow or Wraparound): 67
 
 CWE 362 (Shared Resource with Improper Synchronization): 31
 - (race) access: The program contains a code sequence that can run concurrently with other code, and the code sequence requires temporary, exclusive access to a shared resource, but a timing window exists in which the shared resource can be modified by another code sequence that is operating concurrently.
- - mosquitto/src/mosquitto_broker_internal.h: line 622
- - mosquitto/src/security.c: line 430
- - mosquitto/test/broker/c/auth_plugin_acl.c: line 32
+  - mosquitto/src/mosquitto_broker_internal.h: line 622
+  - mosquitto/src/security.c: line 430
+  - mosquitto/test/broker/c/auth_plugin_acl.c: line 32
 
 CWE 327 (Use of a Broken or Risky Cryptographic Algorithm): 5
 - The use of a broken or risky cryptographic algorithm is an unnecessary risk that may result in the exposure of sensitive information
