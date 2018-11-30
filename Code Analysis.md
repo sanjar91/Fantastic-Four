@@ -30,7 +30,7 @@ Our code review strategy involved the following activities:
 
 **Patterns, CVEs, Files of Interest**
 
-### Codacy
+### Flawfinder
 
 **Overview**
 
