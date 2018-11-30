@@ -82,23 +82,20 @@ CWE 120 (Buffer overflow): 31
 
 CWE 134 (Use of Externally-Controlled Format String): 12
 - (format) snprintf: The software uses a function that accepts a format string as an argument, but the format string originates from an external source
-  - mosquitto/client/pub_client.c: line 29
-  - mosquitto/config.h: line 24
-  - mosquitto/examples/mysql_log/mysql_log.c: line 9
-  - mosquitto/test/fake_user.c: line 38
+  - client/pub_client.c: line 29
+  - config.h: line 24
 
 CWE 190 (Integer Overflow or Wraparound): 67
 - The software performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control.
 
 CWE 362 (Shared Resource with Improper Synchronization): 31
 - (race) access: The program contains a code sequence that can run concurrently with other code, and the code sequence requires temporary, exclusive access to a shared resource, but a timing window exists in which the shared resource can be modified by another code sequence that is operating concurrently.
-  - mosquitto/src/mosquitto_broker_internal.h: line 622
-  - mosquitto/src/security.c: line 430
-  - mosquitto/test/broker/c/auth_plugin_acl.c: line 32
+  - src/mosquitto_broker_internal.h: line 622
+  - src/security.c: line 430
 
 CWE 327 (Use of a Broken or Risky Cryptographic Algorithm): 5
-- The use of a broken or risky cryptographic algorithm is an unnecessary risk that may result in the exposure of sensitive information
-
+- (random) srand: This function is not sufficiently random for security-related functions such as key and nonce creation. Use a more secure technique for acquiring random values.
+  - lib/mosquitto.c: line 53
 
 
 
