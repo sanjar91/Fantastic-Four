@@ -82,8 +82,9 @@ CWE 120 (Buffer overflow): 31
 
 CWE 134 (Use of Externally-Controlled Format String): 12
 - (format) snprintf: The software uses a function that accepts a format string as an argument, but the format string originates from an external source
-  - client/pub_client.c: line 29
-  - config.h: line 24
+  - If format strings can be influenced by an attacker, they can be exploited, and do not always \0-terminate
+   - client/pub_client.c: line 29
+   - config.h: line 24
 
 CWE 190 (Integer Overflow or Wraparound): 67
 - The software performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control.
