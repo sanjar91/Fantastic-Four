@@ -11,7 +11,7 @@ After engaging in the security-related activities of misuse cases, assurance cas
 
 Our code review strategy involved the following activities:
 * Run static analysis tools against the codebase
-* Analysis the static analysis results
+* Analyze the static analysis results
   * Filter the static analysis results to security related areas of concern
   * Identify any patterns and files of interest from the report.  Identify repeated CVEs
 * Conduct manual code reviews of high level flagged areas of concern in relation to identified CVEs
