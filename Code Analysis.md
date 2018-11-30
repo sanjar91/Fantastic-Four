@@ -44,11 +44,13 @@ Our code review strategy involved the following activities:
 **Inspection of Flagged Lines of Code**
 
 **Scoped Manual Code Review of Previously Identified Files of Interest**
-
+##### Logging of Admin Functions
 After completing the Assurance Cases and Data Flow Diagrams for this project, a major flaw was discovered that had to do with event logging, and what functions within the OSS were in the scope of that event logging. This major flaw specifically dealt with a utility that is separate from the internal broker, the mosquitto_passwd utility. This utility creates new users, deletes users, resets passwords, and supports batch commands to create and delete large groups of users. 
 
 This utility by default is only accessible from the host system that the broker runs on, so many of the vulnerabilities the externally facing files encounter are not applicable. Since no logging is set in place for this utility though, common exploits such as trying to change the password of a user with a higher level of access, or batch creating more users for use in a Denial of Service style attack, would not be tracked by this broker and could go unnoticed.
 
 To enable this sort of feature, the mosquitto_passwd.c file would have to reference the logging.c file and config.h, in order to pull down what type of logging and what logging location is being used, and to use the log\_\_printf() function to successfully log user admin events. 
+
+##### Enforce use of Stronger Passwords in Authentication
 
 **Issue with Codebase**
