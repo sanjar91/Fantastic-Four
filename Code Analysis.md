@@ -25,17 +25,7 @@ Our code review strategy involved the following activities:
 **Overview**
 - Codacy Report [![Codacy Badge](https://api.codacy.com/project/badge/Grade/54e5a5c7877d4c6a948a249c66a856ef)](https://www.codacy.com/app/sanjar91/mosquitto?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ppeters0502/mosquitto&amp;utm_campaign=Badge_Grade)
 
-
-**Filtering Process**
-
-**Patterns, CVEs, Files of Interest**
-
-### Flawfinder
-
-**Overview**
-- Flawfinder Report: https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt 
-
-**Filtering Process**
+**Findings**
 
 * Total issues:	543
   * Categories:
@@ -70,7 +60,42 @@ Our code review strategy involved the following activities:
 * Overall Grade: A
 
 
-**Patterns, CVEs, Files of Interest**
+### Flawfinder
+
+**Overview**
+- Flawfinder Report: https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt 
+
+**Findings**
+
+* Total issues: 493
+
+### Common Weakness Enumeration Identified: 
+
+CWE 20 (Improper input validation): 3 
+- The product does not validate or incorrectly validates input that can affect the control flow or data flow of a program
+
+* CWE 126 (Buffer Over-read):  126 
+- Does not handle strings that are not \0-terminated; if given one it may perform an over-read
+
+* CWE 120 (Buffer overflow): 31
+- The program copies an input buffer to an output buffer without verifying that the size of the input buffer is less than the size of the output buffer, leading to a buffer overflow.
+
+* CWE 134 (Use of Externally-Controlled Format String): 12
+o	The software uses a function that accepts a format string as an argument, but the format string originates from an external source
+
+* CWE 190 (Integer Overflow or Wraparound): 67
+- The software performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control.
+
+* CWE 362 (Shared Resource with Improper Synchronization): 31
+- The program contains a code sequence that can run concurrently with other code, and the code sequence requires temporary, exclusive access to a shared resource, but a timing window exists in which the shared resource can be modified by another code sequence that is operating concurrently.
+
+* CWE 327 (Use of a Broken or Risky Cryptographic Algorithm): 5
+- The use of a broken or risky cryptographic algorithm is an unnecessary risk that may result in the exposure of sensitive information
+
+
+
+
+
 
 ### Manual Code Review
 
