@@ -9,14 +9,15 @@ After engaging in the security-related activities of misuse cases, assurance cas
 
 ## Code Review Strategy
 
-Our code review strategy involved the following activities:
+We wanted to ensure we had a targeted, focused strategy for our code review.  Below is an overview of our strategy:
 * Run static analysis tools against the codebase
 * Analyze the static analysis results
   * Filter the static analysis results to security related areas of concern
-  * Identify any patterns and files of interest from the report.  Identify repeated CVEs
-* Conduct manual code reviews of high level flagged areas of concern in relation to identified CVEs
+  * Identify any patterns and files of interest from the report.  Identify repeated CVEs.
+* Conduct manual code reviews of high level flagged areas of concern in relation to identified CVEs.
 * Conduct manual code review of files of interested identified in our previous security-related activities
-  * scope manual code review to CVE's identified in static analysis 
+  * scope manual code review to threats related to CVE's identified in static analysis.  
+    * **Note:** We scoped our manual code review of these files in this way for two reasons.  The first reason was because, due to time limitation, it was not feasible to manually search for every possible type of weakness that could exist in the code.  The other reason is because we wanted to make sure our manual code review was focused so that we were looking for very specific types of weaknesses.  One is more likely to find what they are looking for if they *know* what it is they wish to find beforehand.
 
 ## Code Review Results
 
