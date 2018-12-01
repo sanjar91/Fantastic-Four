@@ -132,7 +132,7 @@ After reviewing the results from the static analysis tools, we noticed that the 
 - Integer Overflows (CWE 190)
 - Improper input validation (CWE 20)
 
-Even though we found nothing but false positives related to the flagged areas of concern pointed to by the static analysis tools: nevertheless, this provided us with a focus for what weaknesses to look for when looking at the files of interest identified in the previous security activities of misuse cases, assurance cases, and threat modeling. The files of interst were the follwoing:
+Even though we found nothing but false positives related to the flagged areas of concern pointed to by the static analysis tools: nevertheless, this provided us with a focus for what weaknesses to look for when looking at the files of interest identified in the previous security activities of misuse cases, assurance cases, and threat modeling. The files of interest were the following:
 - [handle_publish.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_publish.c)
 - [handle_subscribe.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_subscribe.c)
 - [mosquitto_passwd.c](https://github.com/eclipse/mosquitto/blob/master/src/mosquitto_passwd.c)
