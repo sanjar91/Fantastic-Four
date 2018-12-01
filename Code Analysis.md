@@ -41,7 +41,7 @@ Our code review strategy involved the following activities:
 * CWE-120 (Buffer overflow): 8
   * 8 “strncopy()” function calls do no verify that the size of input buffer is less that the size of output buffer before copying input buffer to output buffer causing a potential buffer overflow
 * CWE-20 (Improper input validation): 3
-  * Input validation that can affect the control flow or data flow of Mosquitto. There are three recursive/loops that are provided with not validated inputs in the following files:
+  * Input validation that can affect the control flow or data flow of Mosquitto. There are three recursive/loops that are provided with invalidated inputs in the following files:
    - lib/loop.c: line 159
    - lib/net_mosq.c: line 694
    - test/qos.c: line 102
