@@ -134,8 +134,9 @@ Any instances of these CWEs that were in files outside of the publish-subscribe 
 **Scoped Manual Code Review of Previously Identified Files of Interest**
 
 After reviewing the results from the static analysis tools, we noticed that the CWEs that tended to come up frequently were those related to the following weaknesses:
-- Buffer Overflows
-- Inproper input validation
+- Buffer Overflows (CWE 126, CWE 120)
+- Interger Overflows (CWE 190)
+- Improper input validation (CWE 20)
 
 Even though we found nothing but false positives related to the flagged areas of concern pointed to by the static analysis tools: nevertheless, this provided us with a focus for what weaknesses to look for when looking at the files of interest identified in the previous security activities of misuse cases, assurance cases, and threat modeling. The files of interst were the follwoing:
 - [handle_publish.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_publish.c)
