@@ -64,10 +64,8 @@ Our code review strategy involved the following activities:
 ### Flawfinder
 
 **Overview**
-- Flawfinder Report: https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt 
-
+* Flawfinder Report: https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt 
 * Total issues: 493
-
 * Hits by Risk Level
   - [1] 261 
   - [2] 175 
@@ -88,21 +86,21 @@ Our code review strategy involved the following activities:
    - lib/cpp/08-ssl-connect-cert-auth-enc.cpp:8
 
 * CWE 134 (Use of Externally-Controlled Format String): 12
-  *(format) snprintf: The software uses a function that accepts a format string as an argument, but the format string originates from an external source
-   - If format strings can be influenced by an attacker, they can be exploited, and do not always \0-terminate
+  * (format) snprintf: The software uses a function that accepts a format string as an argument, but the format string originates from an external source. If format strings can be influenced by an attacker, they can be exploited, and do not always \0-terminate. Check the following files:
    - client/pub_client.c: line 29
    - config.h: line 24
 
 * CWE 190 (Integer Overflow or Wraparound): 67
-  * The software performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control.
+  * Low level risk, but if source is untrusted, check both minimum and maximum, even if the input had no minus sign. Consider saving to an unsigned value if that is intended to avoid large numbers from rolling over into negative numbers.
 
 * CWE 362 (Shared Resource with Improper Synchronization): 31
-  * (race) access: The program contains a code sequence that can run concurrently with other code, and the code sequence requires temporary, exclusive access to a shared resource, but a timing window exists in which the shared resource can be modified by another code sequence that is operating concurrently.
+  * (race) access: This usually indicates a security flaw. If an attacker can change anything along the path between the call to access() and the file's actual use (by moving files), the attacker can exploit the race condition. Set up the correct permissions using setuid().
+   - test/broker/c/auth_plugin_msg_params.c:33
    - src/mosquitto_broker_internal.h: line 622
    - src/security.c: line 430
 
 * CWE 327 (Use of a Broken or Risky Cryptographic Algorithm): 5
-  * (random) srand: This function is not sufficiently random for security-related functions such as key and nonce creation. Use a more secure technique for acquiring random values.
+  * (random) srand: This function is not sufficiently random for security-related functions such as key and nonce creation. Use a more secure technique for acquiring random values. Check the following file:
    - lib/mosquitto.c: line 53
 
 
