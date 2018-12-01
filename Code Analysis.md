@@ -75,9 +75,6 @@ Our code review strategy involved the following activities:
 
 **Findings of Security Related issues**
 
-* CWE 20 (Improper input validation): 3 
-  * The product does not validate or incorrectly validates input that can affect the control flow or data flow of a program
-
 * CWE 126 (Buffer Over-read):  126 
   * Does not handle strings that are not \0-terminated; if given one it may perform an over-read
 
@@ -89,6 +86,11 @@ Our code review strategy involved the following activities:
   * (format) snprintf: The software uses a function that accepts a format string as an argument, but the format string originates from an external source. If format strings can be influenced by an attacker, they can be exploited, and do not always \0-terminate. Check the following files:
    - client/pub_client.c: line 29
    - config.h: line 24
+   
+* CWE 20 (Improper input validation): 3 
+  * Data from all potentially untrusted sources should be subject to input validation. There are two recursive/loops that are not checking buffer boundaries located in these files:
+   - lib/net_mosq.c: line 694
+   - test/qos.c: line 102
 
 * CWE 190 (Integer Overflow or Wraparound): 67
   * Low level risk, but if source is untrusted, check both minimum and maximum, even if the input had no minus sign. Consider saving to an unsigned value if that is intended to avoid large numbers from rolling over into negative numbers.
