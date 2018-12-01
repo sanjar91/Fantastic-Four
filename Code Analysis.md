@@ -64,13 +64,11 @@ We wanted to ensure we had a targeted, focused strategy for our code review.  Be
 
 **Summary of Key Findings from Codacy**
 
-* CWE-126 (Buffer Over-read): 
-  * The automated code review from Codacy listed 205 potential security risks within “strlen()” function calls in Mosquitto’s .c and .cpp files, where Buffer Over-read is inevitable. According to cwe.org Buffer over-read occurs when “the pointer or its index is incremented to a position beyond the bounds of the buffer or when pointer arithmetic results in a position outside of the valid memory location to name a few. This may result in exposure of sensitive information or possibly a crash.” This issue yields significant importance, therefore we will review this issue further during our manual code evaluation process below. 
+CWE-126 (Buffer Over-read): The automated code review from Codacy listed 205 potential security risks within “strlen()” function calls in Mosquitto’s .c and .cpp files, where Buffer Over-read is inevitable. According to cwe.org Buffer over-read occurs when “the pointer or its index is incremented to a position beyond the bounds of the buffer or when pointer arithmetic results in a position outside of the valid memory location to name a few. This may result in exposure of sensitive information or possibly a crash.” This issue yields significant importance, therefore we will review this issue further during our manual code evaluation process below. 
 
-* CWE-20 (Improper Input Validation)
-  * The automated report form Codacy listed three potential security risks within “read()” function calls where the buffer boundaries are not specified within if conditions in the following .c files: lib/loop.c, lib/net_mosq.c, test/qoc.c. Not specifying the buffer bounds for reading could cause a potential buffer overflow risk and leave the software vulnerable to outside arbitrary code execution or program crashing.
+CWE-20 (Improper Input Validation): The automated report form Codacy listed three potential security risks within “read()” function calls where the buffer boundaries are not specified within if conditions in the following .c files: *lib/loop.c*, *lib/net_mosq.c*, *test/qoc.c*. Not specifying the buffer bounds for reading could cause a potential buffer overflow risk and leave the software vulnerable to outside arbitrary code execution or program crashing.
 
-Furthermore, the use of pseudo random generators within the python file, test/broker/03-publish-qos1-queued-bytes.py, is listed as a potential cryptographic security weakness in the automated report. So far we haven’t found much support documentation to weigh in one way or another, but we will be further exploring this issue. 
+Furthermore, the use of pseudo random generators within the python file, *test/broker/03-publish-qos1-queued-bytes.py*, is listed as a potential cryptographic security weakness in the automated report. So far we haven’t found much support documentation to weigh in one way or another, but we will be further exploring this issue. 
 
 #### Flawfinder
 
