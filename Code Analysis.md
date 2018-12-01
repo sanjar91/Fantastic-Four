@@ -104,6 +104,7 @@ Hits by Risk Level
   - [3]  12 
   - [4]  45 
   - [5]   0
+  
   Note: Not every hit is necessarily a security vulnerability
 
 
