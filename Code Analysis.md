@@ -161,6 +161,6 @@ Since Authentication was one of our security requirements, we dove into its impl
 
 **Submitted Issues to the official Mosquitto Repository**
 - Logging of Admin User Functions in mosquitto_passwd: [#1060](https://github.com/eclipse/mosquitto/issues/1060)
-- Strong Password Validation: [#1061](https://github.com/eclipse/mosquitto/issues/1061)
+- Strong Password Validation in mosquitto_passwd: [#1061](https://github.com/eclipse/mosquitto/issues/1061)
 
 #### [GitHub repository with internal project task](https://github.com/sanjar91/Fantastic-Four/projects/6)
