@@ -76,7 +76,8 @@ Our code review strategy involved the following activities:
 **Findings of Security Related issues**
 
 * CWE 126 (Buffer Over-read):  126 
-  * Does not handle strings that are not \0-terminated; if given one it may perform an over-read
+  * The client_shared.c program file has been severely flagged for the potential of overrunning the buffer boundary in an attempt to read adjacent memory when the string passed is not \0-terminated. Should look to ensure bounds checking is in place to prevent future buffer over-reads.
+   - client/client_shared.c: lines 46, 207, 222, 242, 265, 266, 343, 627, 749, and many more
 
 * CWE 120 (Buffer overflow): 31
   * (buffer) char: Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues. Perform bounds checking, use functions that limit length, or ensure that the size is larger than the maximum possible length.
