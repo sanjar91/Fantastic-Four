@@ -149,14 +149,14 @@ To enable this sort of feature, the mosquitto_passwd.c file would have to refere
 
 ##### Authentication
 Since Authentication was one of our security requirements, we dove into its implementation in the code.  Specifically, we focused on the username and password creation process.  Derived from our previous security activities, this made the mosquitto_passwd.c file of interest.  This is a self-contained utility that generates passwords.  Overall we noticed that buffer overflows are consistently negated by making use of the MAX_BUFFER_LEN macro whenever user input is saved into a data structure. The following methods stood out to us:
- 
-get_password: gets the password input from the user. Confirms the user properly entered the password by having them enter the password twice
 
-Findings: Though this method does ensure that something is entered for the password (empty passwords are not accepted), it does not enforce strong passwords. The project could implement a strong password check via a regular expression check on line 310.  
+Findings: 
 
-ouput_new_password: hashes the password.  We were pleased to notice that hashing passwords are the default configuration which implments the "secure defaults" security principle.  The hashing process is utilizing the well known openssl library which implments the vetted design principle.
+`get_password`: gets the password input from the user. Confirms the user properly entered the password by having them enter the password twice. Though this method does ensure that something is entered for the password (empty passwords are not accepted), it does not enforce strong passwords. The project could implement a strong password check via a regular expression check on line 310.  
 
-delete_pwuser:  Deletes the user/password.  We observed that the user is not required to enter the password to delete a specific user.  The user simply enters the user, and the utility finds the line where the user exists, and it delete that line of code, which contains both the user and the hashed password. 
+`ouput_new_password`: hashes the password.  We were pleased to notice that hashing passwords are the default configuration which implments the "secure defaults" security principle.  The hashing process is utilizing the well known openssl library which implments the vetted design principle.
+
+`delete_pwuser`:  Deletes the user/password.  We observed that the user is not required to enter the password to delete a specific user.  The user simply enters the user, and the utility finds the line where the user exists, and it delete that line of code, which contains both the user and the hashed password. 
 
 
 **Submitted Issues to the official Mosquitto Repository**
