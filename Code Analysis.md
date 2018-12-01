@@ -114,6 +114,14 @@ Our code review strategy involved the following activities:
 
 **Inspection of Flagged Lines of Code**
 
+The three types of weaknesses that flagged the most lines of code were CWE-126 (Buffer Over-read), CWE-120 (Buffer Overflow), and CWE-134 (Use of Externally-Controlled Format String). The majority of the lines of code that were flagged by these three CWEs were tied to the publish-subscribe workflow in the broker. Because of this, the restrictions of the MQTT protocol applied to all of the payloads that were passed into publish requests, topic paths, and subscription requests listed in the subscribe request. 
+
+The MQTT protocol has a size limit for the payload 268,435,456 bytes, and a size limit for the topic string of 65,536 bytes. The payload size limit is defined globally to this project in the [mqtt3_protocol.h](https://github.com/eclipse/mosquitto/blob/master/lib/mqtt3_protocol.h) header file in the lib folder. The topic size limit is referenced in a topic-check function in [utf8_mosq.c](https://github.com/eclipse/mosquitto/blob/master/lib/util_mosq.c) (line 142) which is also in the lib folder.
+
+Because the only string inputs by external actors in the publish-subscribe workflow are these two pieces, the topic and the payload, and since they are immediately checked upon first connection, the size of memory matching these limits is already allocated for these two pieces, so checking that the strings are null terminated was not necessary.
+
+Any instances of these CWEs that were in files outside of the publish-subscribe workflow aren't treated to this inspection, so it was necessary to ensure that if an external string was being provided to one of these non-workflow files, that we check for null termination in the string.
+
 **Scoped Manual Code Review of Previously Identified Files of Interest**
 ##### Logging of Admin Functions
 After completing the Assurance Cases and Data Flow Diagrams for this project, a major flaw was discovered that had to do with event logging, and what functions within the OSS were in the scope of that event logging. This major flaw specifically dealt with a utility that is separate from the internal broker, the mosquitto_passwd utility. This utility creates new users, deletes users, resets passwords, and supports batch commands to create and delete large groups of users. 
