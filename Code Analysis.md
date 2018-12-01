@@ -94,6 +94,7 @@ Our code review strategy involved the following activities:
 
 * CWE 190 (Integer Overflow or Wraparound): 67
   * Low level risk, but if source is untrusted, check both minimum and maximum, even if the input had no minus sign. Consider saving to an unsigned value if that is intended to avoid large numbers from rolling over into negative numbers.
+   - client/client_shared.c: lines 380, 437
 
 * CWE 362 (Shared Resource with Improper Synchronization): 31
   * (race) access: This usually indicates a security flaw. If an attacker can change anything along the path between the call to access() and the file's actual use (by moving files), the attacker can exploit the race condition. Set up the correct permissions using setuid().
