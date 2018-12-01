@@ -20,6 +20,8 @@ Our code review strategy involved the following activities:
 
 ## Code Review Results
 
+### Automated Code Reviews:
+
 ### Codacy
 
 **Overview**
@@ -58,10 +60,8 @@ Our code review strategy involved the following activities:
 * CWE-732 (Incorrect Permission Assignment for Critical Resource): 2
   * The author uses and extra 0 before the permission. In the following file the author uses “0077” while better programming practice and CWE-732 argues to only use three digits so instead of using “0077” author could’ve used “077” in the following file:
    - lib/util_mosq.c: line 448
- 
 
-
-### Flawfinder
+#### Flawfinder
 
 **Overview**
 * Flawfinder Report: https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt 
