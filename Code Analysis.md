@@ -150,7 +150,7 @@ To enable this sort of feature, the mosquitto_passwd.c file would have to refere
 ##### Authentication
 Since Authentication was one of our security requirements, we dove into its implementation in the code.  Specifically, we focused on the username and password creation process.  Derived from our previous security activities, this made the mosquitto_passwd.c file of interest.  This is a self-contained utility that generates passwords.  Overall we noticed that buffer overflows are consistently negated by making use of the MAX_BUFFER_LEN macro whenever user input is saved into a data structure. The following methods stood out to us:
 
-Findings: 
+##### Authentication Findings: 
 
 `get_password`: gets the password input from the user. Confirms the user properly entered the password by having them enter the password twice. Though this method does ensure that something is entered for the password (empty passwords are not accepted), it does not enforce strong passwords. The project could implement a strong password check via a regular expression check on line 310.  
 
