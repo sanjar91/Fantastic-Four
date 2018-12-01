@@ -148,7 +148,7 @@ This utility by default is only accessible from the host system that the broker 
 To enable this sort of feature, the mosquitto_passwd.c file would have to reference the logging.c file and config.h, in order to pull down what type of logging and what logging location is being used, and to use the log\_\_printf() function to successfully log user admin events. 
 
 ##### Authentication
-Since Authentication was one of our security requirements, we dove into its implementation in the code.  Specifically, we focused on the username and password creation process.  Derived from our previous security activities, this made the mosquitto_passwd.c file of interest.  This is a self-contained utility that generates passwords.  Overall we noticed that buffer overflows are consistently negated by making use of the MAX_BUFFER_LEN macro whenever user input is saved into a data structure. The following methods stood out to us:
+Since Authentication was one of our security requirements, we dove into its implementation in the code.  Specifically, we focused on the username and password creation process.  Derived from our previous security activities, this made the mosquitto_passwd.c file of interest.  This is a self-contained utility that generates passwords.  Overall we noticed that buffer overflows are consistently negated by making use of the `MAX_BUFFER_LEN` macro whenever user input is saved into a data structure. The following methods stood out to us:
 
 ##### Authentication Findings: 
 
