@@ -17,7 +17,7 @@ We wanted to ensure we had a targeted, focused strategy for our code review.  Be
 * Conduct manual code reviews of high level flagged areas of concern in relation to identified CVEs.
 * Conduct manual code review of files-of-interest identified in our previous security-related activities
   * scope manual code review to threats related to CVE's identified in static analysis.  
-    * **Note:** We scoped our manual code review of these files in this way for two reasons.  The first reason was because, due to time limitation, it was not feasible to manually search for every possible type of weakness that could exist in the code.  The other reason is because we wanted to make sure our manual code review was focused so that we were looking for very specific types of weaknesses.  One is more likely to find what they are looking for if they *know* what it is they wish to find beforehand.
+    * **Note:** We scoped our manual code review of these files in this way for two reasons.  The first reason was because, due to time limitation, it was not feasible to manually search for every possible type of weakness that could exist in the code. We also wanted to make sure our manual code review was focused so that we were looking for very specific types of weaknesses.  One is more likely to find what they are looking for if they *know* what it is they wish to find beforehand.
 
 ## Code Review Results
 
