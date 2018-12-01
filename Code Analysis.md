@@ -14,8 +14,8 @@ Our code review strategy involved the following activities:
 * Analyze the static analysis results
   * Filter the static analysis results to security related areas of concern
   * Identify any patterns and files of interest from the report.  Identify repeated CVEs
-* Conduct manual code reviews of high level flagged areas of concern in relation to identified CVEs (filter out false positives).
-* Conduct manual code review of files of interest identified in our previous security-related activities
+* Conduct manual code reviews of high level flagged areas of concern in relation to identified CVEs
+* Conduct manual code review of files of interested identified in our previous security-related activities
   * scope manual code review to CVE's identified in static analysis 
 
 ## Code Review Results
@@ -60,6 +60,16 @@ Our code review strategy involved the following activities:
 * CWE-732 (Incorrect Permission Assignment for Critical Resource): 2
   * The author uses and extra 0 before the permission. In the following file the author uses “0077” while better programming practice and CWE-732 argues to only use three digits so instead of using “0077” author could’ve used “077” in the following file:
    - lib/util_mosq.c: line 448
+
+**Summary of Key Findings from Codacy**
+
+* CWE-126 (Buffer Over-read): 
+  * The automated code review from Codacy listed 205 potential security risks within “strlen()” function calls in Mosquitto’s .c and .cpp files, where Buffer Over-read is inevitable. According to cwe.org Buffer over-read occurs when “the pointer or its index is incremented to a position beyond the bounds of the buffer or when pointer arithmetic results in a position outside of the valid memory location to name a few. This may result in exposure of sensitive information or possibly a crash.” This issue yields significant importance, therefore we will review this issue further during our manual code evaluation process below. 
+
+* CWE-20 (Improper Input Validation)
+  * The automated report form Codacy listed three potential security risks within “read()” function calls where the buffer boundaries are not specified within if conditions in the following .c files: lib/loop.c, lib/net_mosq.c, test/qoc.c. Not specifying the buffer bounds for reading could cause a potential buffer overflow risk and leave the software vulnerable to outside arbitrary code execution or program crashing.
+
+Furthermore, the use of pseudo random generators within the python file, test/broker/03-publish-qos1-queued-bytes.py, is listed as a potential cryptographic security weakness in the automated report. So far we haven’t found much support documentation to weigh in one way or another, but we will be further exploring this issue. 
 
 #### Flawfinder
 
