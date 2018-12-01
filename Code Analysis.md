@@ -24,40 +24,41 @@ Our code review strategy involved the following activities:
 
 **Overview**
 - Codacy Report [![Codacy Badge](https://api.codacy.com/project/badge/Grade/54e5a5c7877d4c6a948a249c66a856ef)](https://www.codacy.com/app/sanjar91/mosquitto?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ppeters0502/mosquitto&amp;utm_campaign=Badge_Grade)
-
-**Findings**
-
 * Total issues:	543
-  * Categories:
-   * Security:	228
-    * CWE-126 (Buffer Over-read): 205
-     * 205 “strlen()” function calls do not handle strings that are not, “\0”, null terminated. Possible over-read may occur if the pointer or its index is incremented beyond the bounds of the provided buffer
-     * CWE-120 (Buffer overflow): 8
-     * 8 “strncopy()” function calls do no verify that the size of input buffer is less that the size of output buffer before copying input buffer to output buffer causing a potential buffer overflow
-    * CWE-20 (Improper input validation): 3
-     * Input validation that can affect the control flow or data flow of Mosquitto. There are three recursive/loops that are provided with not validated inputs in the following files:
-      * lib/loop.c: line 159
-      * lib/net_mosq.c: line 694
-      * test/qos.c: line 102
-    * Input Validation: 5
-     * 5 “subprocess()”calls in the following python files do not validate external input. However, python possesses many mechanisms to invoke an external executable and use of a command shell is not vulnerable to shell injection attacks, but care should still be taken to ensure validity of input:
-      * test/broker/ptest.py: lines 114, 125, 137
-      * test/mosq_test.py: lines 32, 55
-    * Importing sub processes: 3
-     * Low level risk, but checks must be put in place to consider possible security implications associated with sub-process modules in the following python files:
-      * test/broker/03-publish-qos-queued-bytes.py: line 7
-      * test/broker/ptest.py: line 3
-      * test/mosq_test.py: line 4
-    * Using the “random()” function: 2
-     * The use of standard pseudo-random generators is not suitable for security/cryptographic purposes. Check the following file:
-      * test/broker/03-publish-qos1-queued-bytes.py: lines: 129, 144
-    * CWE-732 (Incorrect Permission Assignment for Critical Resource): 2
-     * The author uses and extra 0 before the permission. In the following file the author uses “0077” while better programming practice and CWE-732 argues to only use three digits so instead of using “0077” author could’ve used “077” in the following file:
-      * lib/util_mosq.c: line 448
-   * Error Prone:	73
-   * Code Style:	228
-   * Unused Code:	14
+* Categories:
+  * Security: 228
+  * Error Prone:	73
+  * Code Style:	228
+  * Unused Code:	14
 * Overall Grade: A
+
+**Findings of Security Related issues**
+
+* CWE-126 (Buffer Over-read): 205
+  * 205 “strlen()” function calls do not handle strings that are not, “\0”, null terminated. Possible over-read may occur if the pointer or its index is incremented beyond the bounds of the provided buffer
+* CWE-120 (Buffer overflow): 8
+  * 8 “strncopy()” function calls do no verify that the size of input buffer is less that the size of output buffer before copying input buffer to output buffer causing a potential buffer overflow
+* CWE-20 (Improper input validation): 3
+  * Input validation that can affect the control flow or data flow of Mosquitto. There are three recursive/loops that are provided with not validated inputs in the following files:
+   - lib/loop.c: line 159
+   - lib/net_mosq.c: line 694
+   - test/qos.c: line 102
+* Input Validation: 5
+  * 5 “subprocess()”calls in the following python files do not validate external input. However, python possesses many mechanisms to invoke an external executable and use of a command shell is not vulnerable to shell injection attacks, but care should still be taken to ensure validity of input:
+   - test/broker/ptest.py: lines 114, 125, 137
+   - test/mosq_test.py: lines 32, 55
+* Importing sub processes: 3
+  * Low level risk, but checks must be put in place to consider possible security implications associated with sub-process modules in the following python files:
+   - test/broker/03-publish-qos-queued-bytes.py: line 7
+   - test/broker/ptest.py: line 3
+   - test/mosq_test.py: line 4
+* Using the “random()” function: 2
+  * The use of standard pseudo-random generators is not suitable for security/cryptographic purposes. Check the following file:
+   - test/broker/03-publish-qos1-queued-bytes.py: lines: 129, 144
+* CWE-732 (Incorrect Permission Assignment for Critical Resource): 2
+  * The author uses and extra 0 before the permission. In the following file the author uses “0077” while better programming practice and CWE-732 argues to only use three digits so instead of using “0077” author could’ve used “077” in the following file:
+   - lib/util_mosq.c: line 448
+ 
 
 
 ### Flawfinder
