@@ -154,7 +154,7 @@ Since Authentication was one of our security requirements, we dove into its impl
 
 `get_password`: gets the password input from the user. Confirms the user properly entered the password by having them enter the password twice. Though this method does ensure that something is entered for the password (empty passwords are not accepted), it does not enforce strong passwords. The project could implement a strong password check via a regular expression check on line 310.  
 
-`ouput_new_password`: hashes the password.  We were pleased to notice that hashing passwords are the default configuration which implments the "secure defaults" security principle.  The hashing process is utilizing the well known openssl library which implments the vetted design principle.
+`ouput_new_password`: hashes the password.  We were pleased to notice that hashing passwords are the default configuration which implments the "secure defaults" security principle.  The hashing process is utilizing the well known openssl library which implements the vetted design principle.
 
 `delete_pwuser`:  Deletes the user/password.  We observed that the user is not required to enter the password to delete a specific user.  The user simply enters the user, and the utility finds the line where the user exists, and it delete that line of code, which contains both the user and the hashed password. 
 
