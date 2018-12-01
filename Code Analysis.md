@@ -79,6 +79,7 @@ CWE 126 (Buffer Over-read):  126
 
 CWE 120 (Buffer overflow): 31
 - (buffer) char: Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues. Perform bounds checking, use functions that limit length, or ensure that the size is larger than the maximum possible length.
+  - lib/cpp/08-ssl-connect-cert-auth-enc.cpp:8
 
 CWE 134 (Use of Externally-Controlled Format String): 12
 - (format) snprintf: The software uses a function that accepts a format string as an argument, but the format string originates from an external source
@@ -106,6 +107,8 @@ Hits by Risk Level
   - [5]   0
   
   Note: Not every hit is necessarily a security vulnerability
+  
+**Key Findings**
 
 
 ### Manual Code Review
