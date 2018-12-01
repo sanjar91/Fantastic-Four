@@ -132,6 +132,17 @@ Because the only string inputs by external actors in the publish-subscribe workf
 Any instances of these CWEs that were in files outside of the publish-subscribe workflow aren't treated to this inspection, so it was necessary to ensure that if an external string was being provided to one of these non-workflow files, that we check for null termination in the string.
 
 **Scoped Manual Code Review of Previously Identified Files of Interest**
+After reviewing the results from the static analysis tools, we noticed that the CWEs that tended to come up frequently were those related to the following weaknesses:
+- Buffer Overflows
+- Inproper input validation
+
+Even though we found nothing but false positives related to the flagged areas of concern pointed to by the static analysis tools: nevertheless, this provided us with a focus for what weaknesses to look for when looking at the files of interest identified in the previous security activities of misuse cases, assurance cases, and threat modeling. The files of interst were the follwoing:
+- [handle_publish.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_publish.c)
+- [handle_subscribe.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_subscribe.c)
+- [mosquitto_passwd.c](https://github.com/eclipse/mosquitto/blob/master/src/mosquitto_passwd.c)
+- [logging.c](https://github.com/eclipse/mosquitto/blob/master/src/logging.c)
+
+
 ##### Logging of Admin Functions
 After completing the Assurance Cases and Data Flow Diagrams for this project, a major flaw was discovered that had to do with event logging, and what functions within the OSS were in the scope of that event logging. This major flaw specifically dealt with a utility that is separate from the internal broker, the mosquitto_passwd utility. This utility creates new users, deletes users, resets passwords, and supports batch commands to create and delete large groups of users. 
 
