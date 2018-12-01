@@ -43,24 +43,24 @@ We wanted to ensure we had a targeted, focused strategy for our code review.  Be
   * 8 “strncopy()” function calls do no verify that the size of input buffer is less that the size of output buffer before copying input buffer to output buffer causing a potential buffer overflow
 * CWE-20 (Improper input validation): 3
   * Input validation that can affect the control flow or data flow of Mosquitto. There are three recursive/loops that are provided with invalidated inputs and the buffer boundaries are not taken into consideration in the following files:
-   - lib/loop.c: line 159
-   - lib/net_mosq.c: line 694
-   - test/qos.c: line 102
+    - lib/loop.c: line 159
+    - lib/net_mosq.c: line 694
+    - test/qos.c: line 102
 * Input Validation: 5
   * 5 “subprocess()”calls in the following python files do not validate external input. However, python possesses many mechanisms to invoke an external executable and use of a command shell is not vulnerable to shell injection attacks, but care should still be taken to ensure validity of input:
-   - test/broker/ptest.py: lines 114, 125, 137
-   - test/mosq_test.py: lines 32, 55
+    - test/broker/ptest.py: lines 114, 125, 137
+    - test/mosq_test.py: lines 32, 55
 * Importing sub processes: 3
   * Low level risk, but checks must be put in place to consider possible security implications associated with sub-process modules in the following python files:
-   - test/broker/03-publish-qos-queued-bytes.py: line 7
-   - test/broker/ptest.py: line 3
-   - test/mosq_test.py: line 4
+    - test/broker/03-publish-qos-queued-bytes.py: line 7
+    - test/broker/ptest.py: line 3
+    - test/mosq_test.py: line 4
 * Using the “random()” function: 2
   * The use of standard pseudo-random generators is not suitable for security/cryptographic purposes. Check the following file:
-   - test/broker/03-publish-qos1-queued-bytes.py: lines: 129, 144
+    - test/broker/03-publish-qos1-queued-bytes.py: lines: 129, 144
 * CWE-732 (Incorrect Permission Assignment for Critical Resource): 2
   * The author uses and extra 0 before the permission. In the following file the author uses “0077” while better programming practice and CWE-732 argues to only use three digits so instead of using “0077” author could’ve used “077” in the following file:
-   - lib/util_mosq.c: line 448
+    - lib/util_mosq.c: line 448
 
 **Summary of Key Findings from Codacy**
 
