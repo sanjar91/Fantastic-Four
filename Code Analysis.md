@@ -66,50 +66,46 @@ Our code review strategy involved the following activities:
 **Overview**
 - Flawfinder Report: https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt 
 
-**Findings**
+**Findings of Security Related issues**
 
 * Total issues: 493
 
-#### Common Weakness Enumeration Identified: 
-
-CWE 20 (Improper input validation): 3 
-- The product does not validate or incorrectly validates input that can affect the control flow or data flow of a program
-
-CWE 126 (Buffer Over-read):  126 
-- Does not handle strings that are not \0-terminated; if given one it may perform an over-read
-
-CWE 120 (Buffer overflow): 31
-- (buffer) char: Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues. Perform bounds checking, use functions that limit length, or ensure that the size is larger than the maximum possible length.
-  - lib/cpp/08-ssl-connect-cert-auth-enc.cpp:8
-
-CWE 134 (Use of Externally-Controlled Format String): 12
-- (format) snprintf: The software uses a function that accepts a format string as an argument, but the format string originates from an external source
-  - If format strings can be influenced by an attacker, they can be exploited, and do not always \0-terminate
-   - client/pub_client.c: line 29
-   - config.h: line 24
-
-CWE 190 (Integer Overflow or Wraparound): 67
-- The software performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control.
-
-CWE 362 (Shared Resource with Improper Synchronization): 31
-- (race) access: The program contains a code sequence that can run concurrently with other code, and the code sequence requires temporary, exclusive access to a shared resource, but a timing window exists in which the shared resource can be modified by another code sequence that is operating concurrently.
-  - src/mosquitto_broker_internal.h: line 622
-  - src/security.c: line 430
-
-CWE 327 (Use of a Broken or Risky Cryptographic Algorithm): 5
-- (random) srand: This function is not sufficiently random for security-related functions such as key and nonce creation. Use a more secure technique for acquiring random values.
-  - lib/mosquitto.c: line 53
-
-Hits by Risk Level
+* Hits by Risk Level
   - [1] 261 
   - [2] 175 
   - [3]  12 
   - [4]  45 
   - [5]   0
-  
-  Note: Not every hit is necessarily a security vulnerability
-  
-**Key Findings**
+
+#### Common Weakness Enumeration Identified: 
+
+* CWE 20 (Improper input validation): 3 
+  * The product does not validate or incorrectly validates input that can affect the control flow or data flow of a program
+
+* CWE 126 (Buffer Over-read):  126 
+  * Does not handle strings that are not \0-terminated; if given one it may perform an over-read
+
+* CWE 120 (Buffer overflow): 31
+  * (buffer) char: Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues. Perform bounds checking, use functions that limit length, or ensure that the size is larger than the maximum possible length.
+   - lib/cpp/08-ssl-connect-cert-auth-enc.cpp:8
+
+* CWE 134 (Use of Externally-Controlled Format String): 12
+  *(format) snprintf: The software uses a function that accepts a format string as an argument, but the format string originates from an external source
+   - If format strings can be influenced by an attacker, they can be exploited, and do not always \0-terminate
+   - client/pub_client.c: line 29
+   - config.h: line 24
+
+* CWE 190 (Integer Overflow or Wraparound): 67
+  * The software performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can introduce other weaknesses when the calculation is used for resource management or execution control.
+
+* CWE 362 (Shared Resource with Improper Synchronization): 31
+  * (race) access: The program contains a code sequence that can run concurrently with other code, and the code sequence requires temporary, exclusive access to a shared resource, but a timing window exists in which the shared resource can be modified by another code sequence that is operating concurrently.
+   - src/mosquitto_broker_internal.h: line 622
+   - src/security.c: line 430
+
+* CWE 327 (Use of a Broken or Risky Cryptographic Algorithm): 5
+  * (random) srand: This function is not sufficiently random for security-related functions such as key and nonce creation. Use a more secure technique for acquiring random values.
+   - lib/mosquitto.c: line 53
 
 
 ### Manual Code Review
