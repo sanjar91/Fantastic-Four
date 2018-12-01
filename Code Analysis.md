@@ -143,7 +143,7 @@ delete_pwuser:  Deletes the user/password.  We observed that the user is not req
 
 
 **Issue with Codebase**
-
+- Logging of Admin User Functions in mosquitto_passwd: [#1060](https://github.com/eclipse/mosquitto/issues/1060)
 
 #### Pull Request:
 
