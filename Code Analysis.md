@@ -132,6 +132,7 @@ Because the only string inputs by external actors in the publish-subscribe workf
 Any instances of these CWEs that were in files outside of the publish-subscribe workflow aren't treated to this inspection, so it was necessary to ensure that if an external string was being provided to one of these non-workflow files, that we check for null termination in the string.
 
 **Scoped Manual Code Review of Previously Identified Files of Interest**
+
 After reviewing the results from the static analysis tools, we noticed that the CWEs that tended to come up frequently were those related to the following weaknesses:
 - Buffer Overflows
 - Inproper input validation
