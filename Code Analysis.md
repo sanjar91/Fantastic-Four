@@ -90,9 +90,10 @@ Our code review strategy involved the following activities:
    - config.h: line 24
    
 * CWE 20 (Improper input validation): 3 
-  * Data from all potentially untrusted sources should be subject to input validation. There are two recursive/loops that are not checking buffer boundaries located in these files:
+  * Data from all potentially untrusted sources should be subject to input validation. There are three recursive/loops that are not checking buffer boundaries located in these files:
    - lib/net_mosq.c: line 694
    - test/qos.c: line 102
+   - lib/loop.c: line 159
 
 * CWE 190 (Integer Overflow or Wraparound): 67
   * Low level risk, but if source is untrusted, check both minimum and maximum, even if the input had no minus sign. Consider saving to an unsigned value if that is intended to avoid large numbers from rolling over into negative numbers.
