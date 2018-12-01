@@ -88,30 +88,30 @@ Furthermore, the use of pseudo random generators within the python file, *test/b
 
 * CWE 126 (Buffer Over-read): 126
   * The client_shared.c program file has been severely flagged for the potential of overrunning the buffer boundary in an attempt to read adjacent memory when the string passed is not \0-terminated. Should look to ensure bounds checking is in place to prevent future buffer over-reads.
-   - client/client_shared.c: lines 46, 207, 222, 242, 265, 266, 343, 627, 749, and many more
+    - client/client_shared.c: lines 46, 207, 222, 242, 265, 266, 343, 627, 749, and many more
 * CWE 120 (Buffer overflow): 31
   * (buffer) char: Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues. Perform bounds checking, use functions that limit length, or ensure that the size is larger than the maximum possible length.
-   - lib/cpp/08-ssl-connect-cert-auth-enc.cpp:8
+    - lib/cpp/08-ssl-connect-cert-auth-enc.cpp:8
 * CWE 134 (Use of Externally-Controlled Format String): 12
   * (format) snprintf: The software uses a function that accepts a format string as an argument, but the format string originates from an external source. If format strings can be influenced by an attacker, they can be exploited, and do not always \0-terminate. Check the following files:
-   - client/pub_client.c: line 29
-   - config.h: line 24
+    - client/pub_client.c: line 29
+    - config.h: line 24
 * CWE 20 (Improper input validation): 3 
   * Data from all potentially untrusted sources should be subject to input validation. There are three recursive/loops that are not checking buffer boundaries located in these files:
-   - lib/net_mosq.c: line 694
-   - test/qos.c: line 102
-   - lib/loop.c: line 159
+    - lib/net_mosq.c: line 694
+    - test/qos.c: line 102
+    - lib/loop.c: line 159
 * CWE 190 (Integer Overflow or Wraparound): 67
   * Low level risk, but if source is untrusted, check both minimum and maximum, even if the input had no minus sign. Consider saving to an unsigned value if that is intended to avoid large numbers from rolling over into negative numbers.
-   - client/client_shared.c: lines 380, 437
+    - client/client_shared.c: lines 380, 437
 * CWE 362 (Shared Resource with Improper Synchronization): 31
   * (race) access: This usually indicates a security flaw. If an attacker can change anything along the path between the call to access() and the file's actual use (by moving files), the attacker can exploit the race condition. Set up the correct permissions using setuid().
-   - test/broker/c/auth_plugin_msg_params.c:33
-   - src/mosquitto_broker_internal.h: line 622
-   - src/security.c: line 430
+    - test/broker/c/auth_plugin_msg_params.c:33
+    - src/mosquitto_broker_internal.h: line 622
+    - src/security.c: line 430
 * CWE 327 (Use of a Broken or Risky Cryptographic Algorithm): 5
   * (random) srand: This function is not sufficiently random for security-related functions such as key and nonce creation. Use a more secure technique for acquiring random values. Check the following file:
-   - lib/mosquitto.c: line 53
+    - lib/mosquitto.c: line 53
 
 ### Manual Code Review
 
