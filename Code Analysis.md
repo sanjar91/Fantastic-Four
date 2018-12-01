@@ -66,8 +66,6 @@ Our code review strategy involved the following activities:
 **Overview**
 - Flawfinder Report: https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt 
 
-**Findings of Security Related issues**
-
 * Total issues: 493
 
 * Hits by Risk Level
@@ -77,7 +75,7 @@ Our code review strategy involved the following activities:
   - [4]  45 
   - [5]   0
 
-#### Common Weakness Enumeration Identified: 
+**Findings of Security Related issues**
 
 * CWE 20 (Improper input validation): 3 
   * The product does not validate or incorrectly validates input that can affect the control flow or data flow of a program
