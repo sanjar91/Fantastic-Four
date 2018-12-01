@@ -74,7 +74,7 @@ Furthermore, the use of pseudo random generators within the python file, *test/b
 #### Flawfinder
 
 **Overview**
-* [Flawfinder Report:](https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt) 
+* [Flawfinder Report](https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt) 
 * Total issues: 493
 * Looking at the static code analysis offered by Flawfinder, the vulnerabilities were listed by decreasing importance. Many were low risk issues. 
 * Hits by Risk Level
@@ -162,4 +162,4 @@ delete_pwuser:  Deletes the user/password.  We observed that the user is not req
 - Logging of Admin User Functions in mosquitto_passwd: [#1060](https://github.com/eclipse/mosquitto/issues/1060)
 - Strong Password Validation: [#1061](https://github.com/eclipse/mosquitto/issues/1061)
 
-#### GitHub repository with internal project task: https://github.com/sanjar91/Fantastic-Four/projects/6
+#### [GitHub repository with internal project task](https://github.com/sanjar91/Fantastic-Four/projects/6)
