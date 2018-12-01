@@ -142,8 +142,9 @@ ouput_new_password: hashes the password.  We were pleased to notice that hashing
 delete_pwuser:  Deletes the user/password.  We observed that the user is not required to enter the password to delete a specific user.  The user simply enters the user, and the utility finds the line where the user exists, and it delete that line of code, which contains both the user and the hashed password. 
 
 
-**Issue with Codebase**
+**Submitted Issues to the official Mosquitto Repository**
 - Logging of Admin User Functions in mosquitto_passwd: [#1060](https://github.com/eclipse/mosquitto/issues/1060)
+- Strong Password Validation: [#1061](https://github.com/eclipse/mosquitto/issues/1061)
 
 #### Pull Request:
 
