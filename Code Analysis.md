@@ -66,12 +66,13 @@ Our code review strategy involved the following activities:
 **Overview**
 * Flawfinder Report: https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt 
 * Total issues: 493
+* Looking at the static code analysis offered by flawfinder, the vulnerabilities were listed by decreasing importance. Many were low risk issues. 
 * Hits by Risk Level
-  - [1] 261 
-  - [2] 175 
-  - [3]  12 
-  - [4]  45 
   - [5]   0
+  - [4]  45 
+  - [3]  12 
+  - [2] 175 
+  - [1] 261 
 
 **Findings of Security Related issues**
 
