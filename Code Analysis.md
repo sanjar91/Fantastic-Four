@@ -14,7 +14,7 @@ We wanted to ensure we had a targeted, focused strategy for our code review.  Be
 * Analyze the static analysis results
   * Filter the static analysis results to security related areas of concern
   * Identify any patterns and files of interest from the report.  Identify repeated CVEs.
-* Conduct manual code reviews of high level flagged areas of concern in relation to identified CVEs.
+* Conduct manual code reviews of high-level flagged areas of concern in relation to identified CVEs.
 * Conduct manual code review of files-of-interest identified in our previous security-related activities
   * Scope manual code review to threats related to CVE's identified in static analysis.  
     * **Note:** We scoped our manual code review of these files in this way for two reasons.  The first reason was because, due to time limitation, it was not feasible to manually search for every possible type of weakness that could exist in the code. We also wanted to make sure our manual code review was focused so that we were looking for very specific types of weaknesses.  One is more likely to find what they are looking for if they *know* what it is they wish to find beforehand.
@@ -38,24 +38,25 @@ We wanted to ensure we had a targeted, focused strategy for our code review.  Be
 **Findings of Security Related issues**
 
 * CWE-126 (Buffer Over-read): 205
-  * 205 “strlen()” function calls do not handle strings that are not, “\0”, null terminated. Possible over-read may occur if the pointer or its index is incremented beyond the bounds of the provided buffer
+  * 205 *“strlen()”* function calls do not handle strings that are not, *“\0”*, null terminated. Possible over-read may occur if the pointer or its index is incremented beyond the bounds of the provided buffer
 * CWE-120 (Buffer overflow): 8
-  * 8 “strncopy()” function calls do no verify that the size of input buffer is less that the size of output buffer before copying input buffer to output buffer causing a potential buffer overflow
+  * 8 *“strncopy()”* function calls do no verify that the size of input buffer is less that the size of output buffer before copying input buffer to output buffer causing a potential buffer overflow
 * CWE-20 (Improper input validation): 3
   * Input validation that can affect the control flow or data flow of Mosquitto. There are three recursive/loops that are provided with invalidated inputs and the buffer boundaries are not taken into consideration in the following files:
     - lib/loop.c: line 159
     - lib/net_mosq.c: line 694
     - test/qos.c: line 102
 * Input Validation: 5
-  * 5 “subprocess()”calls in the following python files do not validate external input. However, python possesses many mechanisms to invoke an external executable and use of a command shell is not vulnerable to shell injection attacks, but care should still be taken to ensure validity of input:
+  * 5 *“subprocess()”* calls in the following python files do not validate external input. However, python possesses many mechanisms to invoke an external executable and use of a command shell is not vulnerable to shell injection attacks, but this should still be taken care of to ensure validity of input:
     - test/broker/ptest.py: lines 114, 125, 137
-    - test/mosq_test.py: lines 32, 55
+    - test/mosq_test.py: lines 32, 55 
+    - Although, it is important to mention that the above python files are test files and not the actual broker
 * Importing sub processes: 3
   * Low level risk, but checks must be put in place to consider possible security implications associated with sub-process modules in the following python files:
     - test/broker/03-publish-qos-queued-bytes.py: line 7
     - test/broker/ptest.py: line 3
     - test/mosq_test.py: line 4
-* Using the “random()” function: 2
+* Using the *“random()”* function: 2
   * The use of standard pseudo-random generators is not suitable for security/cryptographic purposes. Check the following file:
     - test/broker/03-publish-qos1-queued-bytes.py: lines: 129, 144
 * CWE-732 (Incorrect Permission Assignment for Critical Resource): 2
@@ -64,18 +65,18 @@ We wanted to ensure we had a targeted, focused strategy for our code review.  Be
 
 **Summary of Key Findings from Codacy**
 
-CWE-126 (Buffer Over-read): The automated code review from Codacy listed 205 potential security risks within “strlen()” function calls in Mosquitto’s .c and .cpp files, where Buffer Over-read is inevitable. According to cwe.org Buffer over-read occurs when “the pointer or its index is incremented to a position beyond the bounds of the buffer or when pointer arithmetic results in a position outside of the valid memory location to name a few. This may result in exposure of sensitive information or possibly a crash.” This issue yields significant importance, therefore we will review this issue further during our manual code evaluation process below. 
+CWE-126 (Buffer Over-read): The automated code review from Codacy listed 205 potential security risks within *“strlen()”* function calls in Mosquitto’s .c and .cpp files, where Buffer Over-read is inevitable. According to cwe.org Buffer over-read occurs when *“the pointer or its index is incremented to a position beyond the bounds of the buffer or when pointer arithmetic results in a position outside of the valid memory location to name a few. This may result in exposure of sensitive information or possibly a crash.”* This issue yields significant importance; therefore, we will review this issue further during our manual code evaluation process below. 
 
-CWE-20 (Improper Input Validation): The automated report form Codacy listed three potential security risks within “read()” function calls where the buffer boundaries are not specified within if conditions in the following .c files: *lib/loop.c*, *lib/net_mosq.c*, *test/qoc.c*. Not specifying the buffer bounds for reading could cause a potential buffer overflow risk and leave the software vulnerable to outside arbitrary code execution or program crashing.
+CWE-20 (Improper Input Validation): The automated report form Codacy listed three potential security risks within *“read()”* function calls where the buffer boundaries are not specified within if conditions in the following .c files: *lib/loop.c*, *lib/net_mosq.c*, *test/qoc.c*. Not specifying the buffer bounds for reading could cause a potential buffer overflow risk and leave the software vulnerable to outside arbitrary code execution or program crashing.
 
-Furthermore, the use of pseudo random generators within the python file, *test/broker/03-publish-qos1-queued-bytes.py*, is listed as a potential cryptographic security weakness in the automated report. So far we haven’t found much support documentation to weigh in one way or another, but we will be further exploring this issue. 
+Furthermore, the use of pseudo random generators within the python file, *test/broker/03-publish-qos1-queued-bytes.py*, is listed as a potential cryptographic security weakness in the automated report. So far, we haven’t found much support documentation to weigh in one way or another, but we will be further exploring this issue. 
 
 #### Flawfinder
 
 **Overview**
-* Flawfinder Report: https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt 
+* [Flawfinder Report:](https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt) 
 * Total issues: 493
-* Looking at the static code analysis offered by flawfinder, the vulnerabilities were listed by decreasing importance. Many were low risk issues. 
+* Looking at the static code analysis offered by Flawfinder, the vulnerabilities were listed by decreasing importance. Many were low risk issues. 
 * Hits by Risk Level
   - [5]   0
   - [4]  45 
@@ -138,7 +139,7 @@ After reviewing the results from the static analysis tools, we noticed that the 
 - Integer Overflows (CWE 190)
 - Improper input validation (CWE 20)
 
-Even though we found nothing but false positives related to the flagged areas of concern pointed to by the static analysis tools: nevertheless, this provided us with a focus for what weaknesses to look for when looking at the files of interest identified in the previous security activities of misuse cases, assurance cases, and threat modeling. The files of interest were the following:
+Even though we found nothing but false positives related to the flagged areas of concern pointed to by the static analysis tools: nevertheless, this provided us with a focus for what weaknesses to look for when looking at the files of interest identified in the previous security activities of misuse cases, assurance cases, and threat modeling. The files of interst were the follwoing:
 - [handle_publish.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_publish.c)
 - [handle_subscribe.c](https://github.com/eclipse/mosquitto/blob/master/src/handle_subscribe.c)
 - [mosquitto_passwd.c](https://github.com/eclipse/mosquitto/blob/master/src/mosquitto_passwd.c)
@@ -153,13 +154,13 @@ This utility by default is only accessible from the host system that the broker 
 To enable this sort of feature, the mosquitto_passwd.c file would have to reference the logging.c file and config.h, in order to pull down what type of logging and what logging location is being used, and to use the log\_\_printf() function to successfully log user admin events. 
 
 ##### Authentication
-Since Authentication was one of our security requirements, we dove into it's implementation in the code.  Specifically, we focused on the username and password creation process.  Derived from our previous security activities, this made the mosquitto_passwd.c file of interest.  This is a self-contained utility that generates passwords.  Overall, we noticed that buffer overflows are consistently negated by making use of the MAX_BUFFER_LEN macro whenever user input is saved into a data structure. The following methods stood out to us:
+Since Authentication was one of our security requirements, we dove into its implementation in the code.  Specifically, we focused on the username and password creation process.  Derived from our previous security activities, this made the mosquitto_passwd.c file of interest.  This is a self-contained utility that generates passwords.  Overall we noticed that buffer overflows are consistently negated by making use of the MAX_BUFFER_LEN macro whenever user input is saved into a data structure. The following methods stood out to us:
  
-get_password: get's the password input from the user. Confirms the user properly entered the password by having them enter the password twice
+get_password: gets the password input from the user. Confirms the user properly entered the password by having them enter the password twice
 
 Findings: Though this method does ensure that something is entered for the password (empty passwords are not accepted), it does not enforce strong passwords. The project could implement a strong password check via a regular expression check on line 310.  
 
-ouput_new_password: hashes the password.  We were pleased to notice that hashing passwords are the default configuration which implements the "secure defaults" security principle.  The hashing process is utilizing the well-known openssl library which implements the vetted design principle.
+ouput_new_password: hashes the password.  We were pleased to notice that hashing passwords are the default configuration which implments the "secure defaults" security principle.  The hashing process is utilizing the well known openssl library which implments the vetted design principle.
 
 delete_pwuser:  Deletes the user/password.  We observed that the user is not required to enter the password to delete a specific user.  The user simply enters the user, and the utility finds the line where the user exists, and it delete that line of code, which contains both the user and the hashed password. 
 
