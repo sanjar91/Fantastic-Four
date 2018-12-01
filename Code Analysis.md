@@ -18,10 +18,11 @@ We wanted to ensure we had a targeted, focused strategy for our code review.  Be
 * Conduct manual code review of files-of-interest identified in our previous security-related activities
   * Scope manual code review to threats related to CVE's identified in static analysis.  
     * **Note:** We scoped our manual code review of these files in this way for two reasons.  The first reason was because, due to time limitation, it was not feasible to manually search for every possible type of weakness that could exist in the code. We also wanted to make sure our manual code review was focused so that we were looking for very specific types of weaknesses.  One is more likely to find what they are looking for if they *know* what it is they wish to find beforehand.
+* Additional inspection of security features of interest
 
 ## Code Review Results
 
-### Automated Code Reviews:
+### Automated Code Reviews
 
 ### Codacy
 
@@ -71,7 +72,7 @@ CWE-20 (Improper Input Validation): The automated report form Codacy listed thre
 
 Furthermore, the use of pseudo random generators within the python file, *test/broker/03-publish-qos1-queued-bytes.py*, is listed as a potential cryptographic security weakness in the automated report. So far, we haven’t found much support documentation to weigh in one way or another, but we will be further exploring this issue. 
 
-#### Flawfinder
+### Flawfinder
 
 **Overview**
 * [Flawfinder Report](https://github.com/sanjar91/Fantastic-Four/blob/master/static_analysis_output/flawfinder_output.txt) 
