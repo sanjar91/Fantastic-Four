@@ -156,6 +156,4 @@ delete_pwuser:  Deletes the user/password.  We observed that the user is not req
 - Logging of Admin User Functions in mosquitto_passwd: [#1060](https://github.com/eclipse/mosquitto/issues/1060)
 - Strong Password Validation: [#1061](https://github.com/eclipse/mosquitto/issues/1061)
 
-#### Pull Request:
-
 #### GitHub repository with internal project task: https://github.com/sanjar91/Fantastic-Four/projects/6
