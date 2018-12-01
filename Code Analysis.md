@@ -34,7 +34,7 @@ We wanted to ensure we had a targeted, focused strategy for our code review.  Be
   * Error Prone:	73
   * Code Style:	228
   * Unused Code:	14
-* Overall Grade: A
+* Overall code grade: A
 
 **Findings of Security Related issues**
 
