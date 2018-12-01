@@ -14,8 +14,8 @@ Our code review strategy involved the following activities:
 * Analyze the static analysis results
   * Filter the static analysis results to security related areas of concern
   * Identify any patterns and files of interest from the report.  Identify repeated CVEs
-* Conduct manual code reviews of high level flagged areas of concern in relation to identified CVEs
-* Conduct manual code review of files of interested identified in our previous security-related activities
+* Conduct manual code reviews of high level flagged areas of concern in relation to identified CVEs (filter out false positives).
+* Conduct manual code review of files of interest identified in our previous security-related activities
   * scope manual code review to CVE's identified in static analysis 
 
 ## Code Review Results
